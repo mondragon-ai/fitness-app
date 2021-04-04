@@ -24,7 +24,7 @@ h1 { font-size: var(--h1-size); }
 .app {
   background: rgb(160, 136, 2);
   text-align: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -66,3 +66,104 @@ h1 { font-size: var(--h1-size); }
   margin: var(--g-padding);;
   padding: 5px;
 }
+
+
+/**======================
+ *    QUICK STATS SECTION
+ *========================**/
+ .quick-stats {
+  margin: 0px;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgb(160, 34, 2);
+  padding-bottom: 5%;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.quick-stats .top-container {
+  margin: 1vw auto;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background: rgb(47, 160, 2);
+}
+
+.quick-stats img {
+  background: rgb(2, 84, 160);
+  margin: 1vh auto;
+  height: 40px;
+  width: 40px;
+}
+
+.name-rank {
+  margin: 5% 2vw 5% 0;
+}
+
+.name-rank .name-h {
+  margin: 1vw auto;
+  font-size: 3vh;
+  text-align: left; 
+}
+
+.name-rank .rank {
+  margin: 1vw auto;
+  font-size: 2vh;
+  text-align: left; 
+}
+
+.name-rank .progress-bar {
+  margin: 1vw auto;
+  width: 100%;
+  height: auto;
+  justify-content: start;
+  background: rgb(240, 128, 225);
+  border-radius: 3px;
+}
+
+.name-rank .progress {
+  margin: 1vw;
+  margin-left: 1vw;
+  background: lightcoral;
+  border-radius: 3px;
+}
+
+.quick-stats .bottom-container {
+  margin: 1vw;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background: rgb(47, 160, 2);
+}
+
+.bottom-container div{
+  margin: 0 2vw;
+  padding: 0;
+}
+
+.bottom-container .stats{
+  text-align: center;
+  margin: 1vh auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/**======================
+ *    STATS SECTION
+ *========================**/
