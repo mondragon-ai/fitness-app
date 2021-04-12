@@ -16,7 +16,7 @@ html {
   text-decoration: none;
   font-family: var(--family);
   color: var(--color-secondary);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1 { font-size: var(--h1-size); }
@@ -26,8 +26,12 @@ h1 { font-size: var(--h1-size); }
   text-align: center;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
+.content-container {
+  overflow-y: scroll ;
+}
 
 /**======================
  *    NAVBAR SECTION
@@ -72,6 +76,7 @@ h1 { font-size: var(--h1-size); }
  *    QUICK STATS SECTION
  *========================**/
  .quick-stats {
+  z-index: 10000;
   margin: 0px;
   padding: 0;
   width: 100%;
@@ -165,5 +170,64 @@ h1 { font-size: var(--h1-size); }
 }
 
 /**======================
- *    STATS SECTION
+ *    HOT KEYS
  *========================**/
+ .grid-container {
+  overflow: visible;
+   background: rgb(95, 129, 62);
+   z-index: -10000;
+   height:max-content;
+   width: auto;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   padding: 10% 2% 2% 2%;
+   margin-top: 0vh;
+ }
+ .grid-item {
+  overflow: visible;
+  background: rgb(163, 28, 28);
+  height: max-content;
+  margin: 25% 5% 5% 5%;
+  padding: 5%;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+}
+
+.grid-icon-container{
+  overflow: visible;
+  background: none;
+  width: 100%;
+}
+
+.emoji-container{
+  position: relative;
+  padding: 0;
+  margin: -35% 0% 0% -15px;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+  background-color: #e0e0e00f;
+}
+
+.emoji-icon{ 
+  position: absolute;
+  background: none;
+  font-size: 5vh;
+  line-height: normal;
+  transform: translate(-50%, -50%); 
+  top: 50%;
+  left: 50%;
+}
+
+/**======================
+ *    CALANDER
+ *========================**/
+ .calander-container {
+  background: rgb(129, 94, 62);
+  height: 100px;;
+  width: auto;
+  padding: 10% 2% 2% 2%;
+
+}

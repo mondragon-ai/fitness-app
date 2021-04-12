@@ -1,10 +1,10 @@
 const ToolBar = () => {
     return (
         <div className="toolbar">
-            <h1>home</h1>
-            <h1>workouts</h1>
-            <h1>body metrics</h1>
-            <h1>wall</h1>
+            <h1>H</h1>
+            <h1>W</h1>
+            <h1>B</h1>
+            <h1>W</h1>
         </div>
     )
 }
