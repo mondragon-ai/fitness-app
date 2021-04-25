@@ -2,6 +2,7 @@ import './App.css';
 import NavBar from './components/nav/NavBar';
 import ToolBar from './components/nav/ToolBar';
 import Dashboard from './screens/Dashboard'
+import Body from './screens/Body';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
@@ -13,8 +14,8 @@ function App() {
         <NavBar />
         <div className="content-container">
           <Switch >
-            <Route path="/"> <Dashboard /> </Route>
-            <Route path="/body">  </Route>
+            <Route exact path="/"> <Dashboard /> </Route>
+            <Route path="/body"> <Body /> </Route>
           </Switch>
         </div>
         <ToolBar />
