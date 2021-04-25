@@ -8,6 +8,9 @@ const hotkeys = [
     {id: 2, title: "Body Weight", emoji: "🏋🏻‍♀️"},
 ];
 
+const bw_header = (top_number) => {return (<div className="graph-header-text"><h1 className="">{top_number}</h1><span>lbs</span></div> ) } 
+const cals_header = (top_number) => {return (<div className="graph-header-text"><h1 className="">{top_number}</h1><span>kcal</span></div> ) } 
+
 class Body extends Component {
 
     constructor() {
@@ -40,7 +43,7 @@ class Body extends Component {
         return (
             <div className="body-section">
 
-                <div className="graph-header-text"><h1 className="">{top_number}</h1></div>
+                {this.state.graph_data == "BW"  ? bw_header(top_number) : cals_header(top_number) }
 
                 <div className="graph-container">
                     <Graph graph_data={this.state.graph_data} />
