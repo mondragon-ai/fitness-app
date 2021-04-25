@@ -1,7 +1,7 @@
 import HotKeys from '../components/dash/HotKeys'
 import Graph from '../components/graph/Graph';
 
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 
 const hotkeys = [
     {id: 1, title: "Calories", emoji: "🍱"}, 
@@ -10,21 +10,40 @@ const hotkeys = [
 
 class Body extends Component {
 
+    constructor() {
+        super();
+        this.graphToggle = this.graphToggle.bind(this);
+    }
+
     state={
         bw: 155,
         bw_change: +0.8,
-        bmr: 2150
+        bmr: 2150,
+        graph_data: "BW"
+    }
+
+    graphToggle(text) {
+        console.log("Graph Date: ", text);
+
+        if (this.state.graph_data != text) {
+            this.setState({
+                graph_data: text
+            })
+        } 
+
     }
 
     render() {
 
+        const top_number = this.state.graph_data == "BW" ? this.state.bw : this.state.bmr;
+
         return (
             <div className="body-section">
 
-                <div className="graph-header-text"><h1 className="">{this.state.bw}</h1></div>
+                <div className="graph-header-text"><h1 className="">{top_number}</h1></div>
 
                 <div className="graph-container">
-                    <Graph />
+                    <Graph graph_data={this.state.graph_data} />
                 </div>
 
                 <div className="body-quickstats">
@@ -32,7 +51,7 @@ class Body extends Component {
                     <div className="bottom-container">
 
                         {/* Current BW */}
-                        <div className="goals">
+                        <div className="goals" onClick={(e) => this.graphToggle("BW")}>
                             <div className="stats">
                                 <h1>{this.state.bw}</h1>
                                 <span>lb</span>
@@ -41,7 +60,7 @@ class Body extends Component {
                         </div>
 
                         {/* Weight Change */}
-                        <div className="streak">
+                        <div className="streak" onClick={() => this.graphToggle("BW")}>
                             <div className="stats">
                                 <h1>{this.state.bw_change}</h1>
                                 <span>lb</span>
@@ -50,7 +69,7 @@ class Body extends Component {
                         </div>
                         
                         {/* Target Calories */}
-                        <div className="date">
+                        <div className="date" onClick={() => this.graphToggle("CALORIES")}>
                             <div className="stats">
                                 <h1>{this.state.bmr}</h1>
                                 <span>BMR</span>
