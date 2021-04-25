@@ -267,13 +267,14 @@ h1 { font-size: var(--h1-size); }
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   background: rgb(47, 160, 2);
 }
 
 .bottom-container div{
   margin: 0 2vw;
   padding: 0;
+  width: 50%;
 }
 
 .bottom-container .stats{
@@ -284,4 +285,11 @@ h1 { font-size: var(--h1-size); }
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
+}
+
+/**======================
+ *    BODY - Stats
+ *========================**/
+.slide-open {
+
 }

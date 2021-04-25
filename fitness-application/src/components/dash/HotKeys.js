@@ -1,13 +1,17 @@
 import React from 'react'
 
-const HotKeys = ({value}) => {
+const HotKeys = ({value, handleOpen}) => {
 
     const { emoji, title} = value;
 
     // console.log(value)
+    const openSlide = (text) => {
+        console.log("Slide Opened")
+        handleOpen(title);
+    }
 
     return (
-        <div className="grid-item">
+        <div onClick={() => openSlide()} className="grid-item">
             <div className="grid-icon-container">
                 <div className="emoji-container">
                     <span className="emoji-icon">{emoji}</span>
