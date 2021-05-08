@@ -288,8 +288,156 @@ h1 { font-size: var(--h1-size); }
 }
 
 /**======================
- *    BODY - Stats
+ *    SLIDER
  *========================**/
-.slide-open {
+ .slide {
+  z-index: -100;
+  height: 0;
+  display: none;
+}
 
+
+.slide-open {
+  z-index: 100000;
+  margin: 0px;
+  padding: 0;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: rgb(194, 119, 119);
+  padding-bottom: 5%;
+}
+
+.slider-header {
+  margin: 0 auto;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  background: rgb(2, 160, 160);
+}
+
+.slider-header div {
+  padding: 5%;
+}
+
+/**======================
+ *    SSEARCH FIELD
+ *========================**/
+ .search {
+   width: 100%;
+   margin-top: 5%;
+ }
+
+ .search form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+ /**    SLIDER - Container
+ /**  ========================**/
+ .slider-pr {
+  margin: 8vh auto;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: rgb(121, 79, 160);
+}
+
+
+ .slider-container {
+  margin: 0 auto;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: rgb(121, 79, 160);
+}
+
+.new-pr {
+  margin: 5vh auto ;
+  display: flex;
+  padding: 0;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  background: rgb(121, 79, 160);
+}
+
+.pr-item {
+  border: 5px, solid, black;
+  margin: 5px;
+  padding: 5% 0;
+  width: 33%;
+  height: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  background: rgb(88, 160, 79);
+  overflow-x: hidden;
+}
+
+.pr-item input {
+  width: 80%;
+}
+
+.pr-item h1 {
+  font-size: 4vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.pr-item p {
+  font-size: 2vh;
+}
+
+/**======================
+ *   FORM 
+ *========================**/
+input[type=text] {
+  border: none;
+  height: 4vh;
+  font-weight: bold;
+  font-size: 4vh;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(0, 0, 0);
+  border-bottom: 2px solid red;
+  padding: 0 5%;
+  background-color: rgba(255, 255, 255, 0.048);
+}
+
+input[type=text]:focus {
+  border: none;
+  border-bottom: 2px solid red;
+  background-color: rgb(146, 146, 146);
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }

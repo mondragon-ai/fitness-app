@@ -18,7 +18,7 @@ class Graph extends Component {
                 margin={{ top: 30, right: 0, bottom: 0, left: 0 }}
                 xScale={{ type: 'point' }}
                 yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
-                curve="basis"
+                curve="natural"
                 axisTop={null}
                 axisRight={null}
                 axisBottom={null}

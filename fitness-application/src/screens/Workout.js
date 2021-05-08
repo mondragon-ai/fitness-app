@@ -1,6 +1,7 @@
 import HotKeys from '../components/dash/HotKeys'
 import Graph from '../components/graph/Graph';
 import Calendar from '../components/dash/Calander';
+import Slider from '../components/slider/Slider';
 
 import React, { Component} from 'react'
 
@@ -19,7 +20,7 @@ class Workout extends Component {
     }
 
     state={
-        
+
         total: 1220,
         squat: 405,
         bench: 315,
@@ -512,9 +513,7 @@ class Workout extends Component {
                     <Calendar />
                 </div>
 
-                <div className="slide-open">
-
-                </div>
+                <Slider />
 
             </div>
 

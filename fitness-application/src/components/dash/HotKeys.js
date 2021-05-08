@@ -5,13 +5,13 @@ const HotKeys = ({value, handleOpen}) => {
     const { emoji, title} = value;
 
     // console.log(value)
-    const openSlide = (text) => {
-        console.log("Slide Opened")
-        handleOpen(title);
+    const openSlide = (event, text) => {
+        console.log("Slide Opened: ", value.id)
+        // handleOpen(title);
     }
 
     return (
-        <div onClick={() => openSlide()} className="grid-item">
+        <div onClick={(event) => openSlide(event)} className="grid-item">
             <div className="grid-icon-container">
                 <div className="emoji-container">
                     <span className="emoji-icon">{emoji}</span>
