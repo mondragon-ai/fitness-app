@@ -7,7 +7,7 @@ const HotKeys = ({value, handleOpen}) => {
     // console.log(value)
     const openSlide = (event, text) => {
         console.log("Slide Opened: ", value.id)
-        // handleOpen(title);
+        handleOpen(title);
     }
 
     return (

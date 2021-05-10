@@ -12,8 +12,11 @@ class Slider extends Component {
             id: 2,
             bw_pr: 500,
             ppr: 405,
-            style: "slide-open"
+            style: this.props.styleProp,
+            open: false
         }
+
+        console.log('Slider-Style (SLIDER):', this.props);
 
         this.closeSlide = this.closeSlide.bind(this);
     }
@@ -22,6 +25,16 @@ class Slider extends Component {
 
         console.log('Parent: ', item);
 
+    }
+
+    componentDidUpdate() {
+        console.log('Slider-Style (SLIDER):', this.props);
+        if (this.state.open == false) {
+            this.setState({
+                style: this.props.styleProp,
+                open: true
+            });
+        }
     }
 
     closeSlide = () => {

@@ -13,9 +13,15 @@ const Dashboard = () => {
         {id: 4, title: "Add Post", emoji: "🏋🏻‍♀️"},
     ];
 
+    const quickStats = [
+        {id: 1, title: "Goals Left", subtitle: "Goals"}, 
+        {id: 2, title: "Streak", subtitle: "Streaks"},
+        {id: 3, title: "Next Goal", subtitle: "Days"}, 
+    ];
+
     return (
         <div>
-            <UserStats /> 
+            <UserStats value={quickStats} /> 
 
             <div className="grid-container">
                 {hotkeys.map( (button) => {
