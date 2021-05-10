@@ -441,3 +441,154 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 4px 2px;
   cursor: pointer;
 }
+
+
+/**======================
+ *   UserFeed 
+ *========================**/
+
+ .user-wall {
+  margin: 0 auto 7vh auto;
+  display: flex;
+  padding: 0;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  background: rgb(121, 79, 160);
+ }
+
+ .wall-post {
+  position: relative;
+  margin: 1px auto;
+  background: rgb(218, 127, 67);
+  width: 33%;
+  height: 15vh;
+  padding: 0px 0;
+ }
+
+ .post-type{
+   position: absolute;
+   left: 0%;
+   margin: 1vh;
+   height: 4vh;
+   width: 4vh;
+   border-radius: 50%;
+   display: flex;
+   align-content: center;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .wall-post .thumbnail {
+  margin: 0 auto;
+  padding: 0px 0;
+  background: rgb(163, 81, 26);
+  width: 100%;
+  height: 100%;
+ }
+
+
+/**======================
+ *  Wall Feed 
+ *========================**/
+
+ .feed {
+  margin: 0 auto;
+  padding: 0px 0;
+  background: rgb(163, 81, 26);
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+ }
+
+ .post {
+  margin: 1vh auto;
+  padding: 1px 0;
+  width: 100%;
+  height: 50vh;
+  background: rgb(6, 17, 41);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:flex-start;
+ }
+
+ .post .post-header {
+  margin: 1vh 0;
+  padding: 0px 0;
+  width: 100%;
+  height: 12vh;
+  background: rgb(29, 134, 85);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+ }
+
+ .post-profile-img {
+  margin: 0 1vh;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+ }
+
+ .post-header-text {
+  margin: 1vh 0;
+  padding: 0px 0;
+  width: 100%;
+  height: auto;
+  background: rgb(29, 134, 85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+}
+
+.post-source {
+  margin: 0;
+  padding: 0px 0;
+  width: 100%;
+  height: 26vh;
+  background: rgb(29, 134, 85);
+}
+
+.post-tabs {
+  margin: 0;
+  padding: 0px 0;
+  width: 100%;
+  height: 6vh;
+  background: rgb(134, 219, 180);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.post-tabs div {
+  margin: 0 1vh;
+  width: 10%;
+  height: auto;
+}
+
+.post-stats {
+  margin: 1% 0;
+  padding: 0px 0;
+  width: 100%;
+  height: 2vh;
+  background: rgb(134, 219, 180);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.post-stats div {
+  margin: 0 1vh;
+  height: auto;
+}
