@@ -29,9 +29,9 @@ const Dashboard = () => {
                 })}
             </div>
 
-            <div className="calander-container">
+            {/* <div className="calander-container">
                 <Calander />
-            </div>
+            </div> */}
             
             
         </div>
