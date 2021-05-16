@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CommentSection from "./CommentSection"
 
 class Post extends Component {
 
@@ -44,7 +45,7 @@ class Post extends Component {
 
                 {/* Comments */}
                 <div className="post-comments">
-                    
+                    <CommentSection />
                 </div>
 
             </div>

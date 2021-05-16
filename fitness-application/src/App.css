@@ -495,7 +495,7 @@ input[type=button], input[type=submit], input[type=reset] {
  *========================**/
 
  .feed {
-  margin: 0 auto;
+  margin: 0 auto 15% auto;
   padding: 0px 0;
   background: rgb(163, 81, 26);
   width: 100%;
@@ -510,7 +510,7 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 1vh auto;
   padding: 1px 0;
   width: 100%;
-  height: 50vh;
+  height: 75vh;
   background: rgb(6, 17, 41);
   flex-direction: column;
   align-items: flex-start;
@@ -554,7 +554,7 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 0;
   padding: 0px 0;
   width: 100%;
-  height: 26vh;
+  height: 35vh;
   background: rgb(29, 134, 85);
 }
 
@@ -591,4 +591,66 @@ input[type=button], input[type=submit], input[type=reset] {
 .post-stats div {
   margin: 0 1vh;
   height: auto;
+}
+
+.post-comments {
+  margin: 1% 0;
+  padding: 0px 0;
+  width: 100%;
+  height: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.post-comment-section {
+  margin: 1% 0;
+  padding: 0px 0;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.user-comment-row {
+  margin: 1% 0;
+  padding: 0px 0;
+  width: 100%;
+  height: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.username-comment {
+  margin: auto 0 auto 5%;
+  width: 30%;
+}
+
+.user-comment {
+  width: 30%;
+  overflow-x: hidden;
+}
+
+.like-comment {
+  position: absolute;
+  right: 0;
+  margin: auto 5%;
+}
+
+.post-comment-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-comment-form input {
+  margin: auto 5%;
 }
