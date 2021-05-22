@@ -866,10 +866,44 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 .signin-card input{
-  width: 80%;
+  width: 100%;
   margin: 5% auto;
 }
 
+.signin-card input[type=text] {
+  padding: 1vh 0;
+  border: none;
+  border-bottom: 1px solid rgba(173, 173, 173, 0.151);
+  background: none;
+  height: 4vh;
+  font-weight: normal;
+  font-size: 1.2em;
+  font-family: 'Montserrat';
+  text-align: left;
+  color: var(--color-forth);
+}
+
+.signin-card input[type=submit] {
+  background-color: #ff7135;
+  width: 100%;
+  border: none;
+  margin: 4vh 0;
+  font-size: 1em;
+  color: var(--color-third);
+  border-radius: 10px;
+  padding: 1vh 25px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .signup-link {
-  color: rgb(14, 97, 97);
+  color: #ff872e;
+  font-size: 0.7em;
+}
+
+.signin-card span {
+  color: var(--color-forth);
+  font-size: 0.7em;
+  position: absolute;
+  bottom: 0vh;
 }
