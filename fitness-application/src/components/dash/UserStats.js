@@ -20,7 +20,7 @@ function UserStats(props) {
                     <img src={usr_profile}/>
                     <div className="name-rank">
                         <h1 className="name-h">Welcome back,<br /> {name}</h1>
-                        <p className="rank">Level - {level}</p>
+                        <p className="rank"><span>Level -</span> {level}</p>
                         <div className="progress-bar">
                             <div className="progress" style={{width: `${progress}%`}}>{progress}%</div>
                         </div>

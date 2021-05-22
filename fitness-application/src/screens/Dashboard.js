@@ -7,10 +7,10 @@ import React from 'react'
 
 const Dashboard = () => {
     const hotkeys = [
-        {id: 1, title: "Add Workout", emoji: "🦄"}, 
+        {id: 1, title: "Workout", emoji: "✍🏼"}, 
         {id: 2, title: "Add PR", emoji: "🏋🏻‍♀️"},
-        {id: 3, title: "Add Body", emoji: "🦄"}, 
-        {id: 4, title: "Add Post", emoji: "🏋🏻‍♀️"},
+        {id: 3, title: "Add Body", emoji: "🌮"}, 
+        {id: 4, title: "Add Post", emoji: "📸"},
     ];
 
     const quickStats = [

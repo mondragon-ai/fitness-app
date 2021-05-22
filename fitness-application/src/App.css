@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:regular,bold,italic,black');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
 
 html {
-  background: bisque;
+  background: #E0E0E0;
   --family: "Montserrat";
   --h1-size: 2vh;
   --text-size: 2vh;
@@ -19,10 +20,25 @@ html {
   text-decoration: none;
   font-family: var(--family);
   color: var(--color-secondary);
+  font-weight: normal;
   /* overflow-x: hidden; */
 }
 
-h1 { font-size: var(--h1-size); }
+h1 { 
+  font-size: var(--h1-size); 
+  text-decoration: none;
+  font-family: var(--family);
+  color: var(--color-secondary);
+  font-weight: normal;
+}
+
+h2 { 
+  font-size: var(--h1-size); 
+  text-decoration: none;
+  font-family: var(--family);
+  color: var(--color-secondary);
+  font-weight: normal;
+}
 
 .app {
   background: var(--color-third);
@@ -129,28 +145,40 @@ h1 { font-size: var(--h1-size); }
   margin: 1vw auto;
   font-size: 3vh;
   text-align: left; 
+  font-weight: bold;
+  font-family: 'Montserrat-black';
 }
 
 .name-rank .rank {
   margin: 1vw auto;
-  font-size: 2vh;
   text-align: left; 
+  font-weight: normal;
+  font-family: 'Montserrat';
+  font-size: 0.5em; 
+  margin-top: 10%;
+}
+
+.name-rank .rank span {
+  font-weight: bold;
 }
 
 .name-rank .progress-bar {
   margin: 1vw auto;
   width: 100%;
+  height: 3vh;
   height: auto;
   justify-content: start;
-  background: rgb(240, 128, 225);
+  background: #FF872E;
   border-radius: 3px;
 }
 
 .name-rank .progress {
-  margin: 1vw;
-  margin-left: 1vw;
-  background: lightcoral;
+  background: #FD2072;
+  height: 100%;
   border-radius: 3px;
+  font-weight: normal;
+  font-family: 'Montserrat';
+  font-size: 0.5em; 
 }
 
 .quick-stats .bottom-container {
@@ -178,6 +206,19 @@ h1 { font-size: var(--h1-size); }
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.stats h1 {
+  font-weight: bold;
+  font-family: 'Montserrat-black';
+  font-size: 1.4em;
+}
+
+.stats span {
+  font-weight: normal;
+  font-family: 'Montserrat';
+  font-size: 0.5em; 
+  margin-top: 10%;
 }
 
 /**======================
@@ -231,12 +272,26 @@ h1 { font-size: var(--h1-size); }
 .emoji-icon{ 
   position: absolute;
   background: none;
-  font-size: 5vh;
+  font-size: 3.5em;
   line-height: normal;
   transform: translate(-50%, -50%); 
   top: 50%;
   left: 50%;
 }
+
+.grid-item h1 {
+  font-weight: bold;
+  font-family: 'Montserrat-black';
+  font-size: 1.4em;
+  text-align: left;
+}
+
+.add-emoji {
+  font-weight: bold;
+  font-family: 'Montserrat-black';
+  font-size: 1.4em;
+}
+
 
 /**======================
  *    CALANDER
