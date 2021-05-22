@@ -14,6 +14,10 @@ html {
   --g-padding: 3vh;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   margin: 0;
   /* background-color: var(--color-primary); */
@@ -24,11 +28,16 @@ html {
   /* overflow-x: hidden; */
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+
 h1 { 
   font-size: var(--h1-size); 
   text-decoration: none;
   font-family: var(--family);
-  color: var(--color-secondary);
+  color: var(--color-third);
   font-weight: normal;
 }
 
@@ -36,7 +45,7 @@ h2 {
   font-size: var(--h1-size); 
   text-decoration: none;
   font-family: var(--family);
-  color: var(--color-secondary);
+  color: var(--color-third);
   font-weight: normal;
 }
 
@@ -48,8 +57,21 @@ h2 {
   overflow: hidden;
 }
 
+.app::-webkit-scrollbar {
+  display: none;
+}
+
 .content-container {
   overflow-y: scroll;
+}
+
+.content-container::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  display: none;
 }
 
 /**======================
@@ -289,7 +311,7 @@ h2 {
 .add-emoji {
   font-weight: bold;
   font-family: 'Montserrat-black';
-  font-size: 1.4em;
+  font-size: 2.5em;
 }
 
 
@@ -308,11 +330,37 @@ h2 {
  *    BODY - Graph
  *========================**/
  .graph-container {
-  background: rgb(25, 156, 64);
+  background: var(--color-forth);
   height: auto;
   width: auto;
   padding: 5% 2% 5% 2%;
 
+}
+
+.graph-header-text {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-end;
+  height: 10vh;
+  background: var(--color-forth);
+}
+
+.graph-header-text h1 {
+  font-weight: bold;
+  font-family: 'Montserrat-black';
+  font-size: 3.4em;
+  color: var(--color-third);
+}
+
+.graph-header-text span {
+  font-weight: normal;
+  font-family: 'Montserrat';
+  font-size: 1em; 
+  margin-bottom: 2.2%;
+  color: var(--color-third);
 }
 
 /**======================
@@ -328,8 +376,10 @@ h2 {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  background: rgb(160, 34, 2);
+  background: var(--color-forth);
   padding-bottom: 5%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .body-quickstats  .bottom-container {
@@ -341,7 +391,7 @@ h2 {
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
-  background: rgb(47, 160, 2);
+  background: none;
 }
 
 .bottom-container div{
@@ -357,7 +407,7 @@ h2 {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 /**======================
@@ -382,8 +432,11 @@ h2 {
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-  background: rgb(194, 119, 119);
+  background: var(--color-forth);
   padding-bottom: 5%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 1px -3px 15px 2px var(--color-third)
 }
 
 .slider-header {
@@ -391,13 +444,17 @@ h2 {
   display: flex;
   padding: 0;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100%;
-  background: rgb(2, 160, 160);
+  background: none;
 }
 
 .slider-header div {
-  padding: 5%;
+  margin: 3%;
+  width: 35%;
+  height: 2vh;
+  background: var(--color-third);
+  border-radius: 10px;
 }
 
 /**======================
@@ -426,7 +483,7 @@ h2 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: rgb(121, 79, 160);
+  background: none;
 }
 
 
@@ -437,7 +494,7 @@ h2 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: rgb(121, 79, 160);
+  background: none;
 }
 
 .new-pr {
@@ -447,7 +504,7 @@ h2 {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  background: rgb(121, 79, 160);
+  background: none;
 }
 
 .pr-item {
@@ -462,7 +519,7 @@ h2 {
   align-content: center;
   justify-content: center;
   justify-items: center;
-  background: rgb(88, 160, 79);
+  background: none;
   overflow-x: hidden;
 }
 
@@ -478,10 +535,16 @@ h2 {
   align-content: center;
   justify-content: center;
   justify-items: center;
+  font-weight: bold;
+  font-family: 'Montserrat-black';
+  font-size: 1.4em;
 }
 
 .pr-item p {
-  font-size: 2vh;
+  font-weight: normal;
+  font-family: 'Montserrat';
+  font-size: 0.2em;
+  margin-bottom: -10%;
 }
 
 /**======================
@@ -491,10 +554,11 @@ input[type=text] {
   border: none;
   height: 4vh;
   font-weight: bold;
-  font-size: 4vh;
-  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5em;
+  font-family: 'Montserrat-black';
+  text-align: center;
   color: rgb(0, 0, 0);
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid var(--color-third);
   padding: 0 5%;
   background-color: rgba(255, 255, 255, 0.048);
 }
@@ -506,9 +570,11 @@ input[type=text]:focus {
 }
 
 input[type=button], input[type=submit], input[type=reset] {
-  background-color: #4CAF50;
+  background-color: #f4a582;
   border: none;
-  color: white;
+  font-size: 1em;
+  color: var(--color-third);
+  border-radius: 10px;
   padding: 16px 32px;
   text-decoration: none;
   margin: 4px 2px;
@@ -521,7 +587,7 @@ input[type=button], input[type=submit], input[type=reset] {
  *========================**/
 
  .user-wall {
-  margin: 0 auto 7vh auto;
+  margin: 1vh auto 7vh auto;
   display: flex;
   padding: 0;
   flex-direction: row;
@@ -529,13 +595,13 @@ input[type=button], input[type=submit], input[type=reset] {
   justify-content:flex-start;
   flex-wrap: wrap;
   width: 100%;
-  background: rgb(121, 79, 160);
+  background: none;
  }
 
  .wall-post {
   position: relative;
   margin: 1px auto;
-  background: rgb(218, 127, 67);
+  background: rgb(255 196 1);
   width: 33%;
   height: 15vh;
   padding: 0px 0;
@@ -557,7 +623,7 @@ input[type=button], input[type=submit], input[type=reset] {
  .wall-post .thumbnail {
   margin: 0 auto;
   padding: 0px 0;
-  background: rgb(163, 81, 26);
+  background: rgb(255 167 104);
   width: 100%;
   height: 100%;
  }
@@ -568,9 +634,9 @@ input[type=button], input[type=submit], input[type=reset] {
  *========================**/
 
  .feed {
-  margin: 0 auto 15% auto;
+  margin: 0 auto 7vh auto;
   padding: 0px 0;
-  background: rgb(163, 81, 26);
+  background: none;
   width: 100%;
   height: auto;
   flex-direction: column;
@@ -583,8 +649,8 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 1vh auto;
   padding: 1px 0;
   width: 100%;
-  height: 75vh;
-  background: rgb(6, 17, 41);
+  height: 70vh;
+  background: var(--color-forth);
   flex-direction: column;
   align-items: flex-start;
   justify-content:flex-start;
@@ -594,8 +660,8 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 1vh 0;
   padding: 0px 0;
   width: 100%;
-  height: 12vh;
-  background: rgb(29, 134, 85);
+  height: auto;
+  background: none;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -615,7 +681,7 @@ input[type=button], input[type=submit], input[type=reset] {
   padding: 0px 0;
   width: 100%;
   height: auto;
-  background: rgb(29, 134, 85);
+  background: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -623,12 +689,24 @@ input[type=button], input[type=submit], input[type=reset] {
   align-items: flex-start;
 }
 
+.post-header-text-handle {
+  font-size: 1em;
+  font-family: 'Montserrat-black';
+  color: var(--color-third);
+}
+
+.post-header-text-location {
+  font-size: 0.7em;
+  font-family: 'Montserrat';
+  color: var(--color-third);
+}
+
 .post-source {
   margin: 0;
   padding: 0px 0;
   width: 100%;
   height: 35vh;
-  background: rgb(29, 134, 85);
+  background: rgb(253 159 117);
 }
 
 .post-tabs {
@@ -636,33 +714,37 @@ input[type=button], input[type=submit], input[type=reset] {
   padding: 0px 0;
   width: 100%;
   height: 6vh;
-  background: rgb(134, 219, 180);
+  background: none;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-content: flex-start;
+  align-items: center;
+
 }
 
 .post-tabs div {
   margin: 0 1vh;
   width: 10%;
   height: auto;
+  font-family: 'Montserrat-black';
 }
 
 .post-stats {
-  margin: 1% 0;
-  padding: 0px 0;
+  margin: 0vh;
+  padding: 1vh 0;
   width: 100%;
   height: 2vh;
-  background: rgb(134, 219, 180);
+  background: none;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-content: flex-start;
+  border-bottom: 1px solid #00000033;
 }
 
 .post-stats div {
-  margin: 0 1vh;
+  margin: 0 2vh;
   height: auto;
 }
 
@@ -670,7 +752,7 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 1% 0;
   padding: 0px 0;
   width: 100%;
-  height: 2vh;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -689,10 +771,10 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 .user-comment-row {
-  margin: 1% 0;
+  margin: 1% 1.2vh;
   padding: 0px 0;
   width: 100%;
-  height: 2vh;
+  height: 2.5vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -700,22 +782,36 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 .username-comment {
-  margin: auto 0 auto 5%;
+  margin: auto 0 auto 0%;
   width: 30%;
+}
+
+.username-comment h5 {
+  font-size: 0.5em;
+  font-family: 'Montserrat';
+  font-weight: bold;
 }
 
 .user-comment {
   width: 30%;
   overflow-x: hidden;
+  font-size: 0.5em;
 }
 
 .like-comment {
   position: absolute;
   right: 0;
   margin: auto 5%;
+  font-size: 0.5em;
+  height: 1vh;
+  width: 1vh;
+  background: rgb(253, 130, 130);
+  border-radius: 50%;
 }
 
 .post-comment-form {
+  margin: auto 4%;
+  margin-top: 1.5vh;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -724,9 +820,30 @@ input[type=button], input[type=submit], input[type=reset] {
   align-items: center;
 }
 
-.post-comment-form input {
-  margin: auto 5%;
+.post-comment-form input[type=textarea] {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(173, 173, 173);
+  background-color: var(--color-forth);
 }
+
+.post-comment-form  input[type=submit] {
+  background-color: #ff7135;
+  width: 30%;
+  border: none;
+  font-size: 1em;
+  color: var(--color-third);
+  border-radius: 10px;
+  padding: 2px 25px;
+  text-decoration: none;
+  margin: 0px;
+  cursor: pointer;
+}
+
+
+/**======================
+ *  Wall Feed 
+ *========================**/
 
 .auth-screen {
   display: flex;

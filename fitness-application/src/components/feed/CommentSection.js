@@ -12,7 +12,7 @@ class CommentSection extends Component {
                     </div>
                     <div className="user-comment">
                         <p>This is a comment</p></div>
-                    <div className="like-comment">X</div>
+                    <div className="like-comment"></div>
                 </div>
                 <div className="user-comment-row" >
                     <div className="username-comment">
@@ -20,7 +20,7 @@ class CommentSection extends Component {
                     </div>
                     <div className="user-comment">
                         <p>This is a comment</p></div>
-                    <div className="like-comment">X</div>
+                    <div className="like-comment"></div>
                 </div>
                 <div className="user-comment-row" >
                     <div className="username-comment">
@@ -28,7 +28,7 @@ class CommentSection extends Component {
                     </div>
                     <div className="user-comment">
                         <p>This is a comment</p></div>
-                    <div className="like-comment">X</div>
+                    <div className="like-comment"></div>
                 </div>
                 <form className="post-comment-form" >
                     <input type="textarea" placeholder="Add component . . ."/>

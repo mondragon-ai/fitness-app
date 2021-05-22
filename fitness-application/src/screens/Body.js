@@ -4,7 +4,7 @@ import Graph from '../components/graph/Graph';
 import React, { Component} from 'react'
 
 const hotkeys = [
-    {id: 1, title: "Calories", emoji: "🍱"}, 
+    {id: 1, title: "Day Calories", emoji: "🍱"}, 
     {id: 2, title: "Body Weight", emoji: "🏋🏻‍♀️"},
 ];
 

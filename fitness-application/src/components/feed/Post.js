@@ -17,7 +17,7 @@ class Post extends Component {
 
                 {/* Header */}
                 <div className="post-header">
-                    <div className="post-profile-img">IMG</div>
+                    <div className="post-profile-img"><img style={{borderRadius: '50%', height: '4vh', width: '4vh', background: "black"}} /></div>
                     <div className="post-header-text">
                         <div className="post-header-text-handle">Mondragon.ai</div>
                         <div className="post-header-text-location">Sao Paolo</div>

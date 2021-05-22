@@ -11,7 +11,7 @@ class Graph extends Component {
         const { data } = this.props;
 
         return (
-            <div className="" style={{height: '20vh', overflow: 'hidden', background: 'black'}}>
+            <div className="" style={{height: '20vh', overflow: 'hidden', background: 'none'}}>
 
               <ResponsiveLine
                 data={data}

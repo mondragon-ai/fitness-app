@@ -6,10 +6,10 @@ import Slider from '../components/slider/Slider';
 import React, { Component} from 'react'
 
 const hotkeys = [
-    {id: 1, title: "Squat PR", emoji: "🏋🏻‍♂️"}, 
-    {id: 2, title: "Bench PR", emoji: "🏆"},
-    {id: 3, title: "Deadlift PR", emoji: "🏋🏻‍♀"},
-    {id: 4, title: "Create Workout", emoji: "✍🏼"},
+    {id: 1, title: "Squat ", emoji: "🏋🏻‍♂️"}, 
+    {id: 2, title: "Bench ", emoji: "🏆"},
+    {id: 3, title: "Deadlift ", emoji: "🏅"},
+    {id: 4, title: "Create", emoji: "✍🏼"},
 ];
 
 class Workout extends Component {
@@ -517,10 +517,10 @@ class Workout extends Component {
                     })}
 
                 </div>
-                
+{/*                 
                 <div className="calander-container">
                     <Calendar />
-                </div>
+                </div> */}
 
                 <Slider styleProp={this.state.styleProp} /> 
 

@@ -51,7 +51,7 @@ class Slider extends Component {
     
                 {/* Header */}
                 <div className="slider-header">
-                    <div onClick={() => this.closeSlide()} className="">X</div>
+                    <div onClick={() => this.closeSlide()} className=""></div>
                 </div>
     
                 {/* Search 
