@@ -182,11 +182,14 @@ h2 {
 }
 
 .quick-stats img {
-  background: rgb(2, 84, 160);
+  background: rgb(53, 53, 53);
   margin: 1vh auto;
-  height: 40px;
-  width: 40px;
+  height: 15vh;
+  width: 15vh;
+  border-radius: 50%;
+  box-shadow: 0px 2px 11px 3px #635547;
 }
+
 
 .name-rank {
   margin: 5% 2vw 5% 0;
@@ -590,13 +593,17 @@ input[type=text] {
   border-bottom: 2px solid var(--color-third);
   padding: 0 5%;
   background-color: rgba(255, 255, 255, 0.048);
-  -webkit-appearance: none
+  -webkit-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 input[type=text]:focus {
   border: none;
   border-bottom: 2px solid red;
   background-color: rgb(146, 146, 146);
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
@@ -609,7 +616,8 @@ input[type=button], input[type=submit], input[type=reset] {
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
-  -webkit-appearance: none
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 
@@ -861,6 +869,8 @@ input[type=button], input[type=submit], input[type=reset] {
   border: none;
   border-bottom: 1px solid rgb(173, 173, 173);
   background-color: var(--color-forth);
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 .post-comment-form  input[type=submit] {
@@ -874,6 +884,8 @@ input[type=button], input[type=submit], input[type=reset] {
   text-decoration: none;
   margin: 0px;
   cursor: pointer;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 
@@ -917,6 +929,8 @@ input[type=button], input[type=submit], input[type=reset] {
   font-family: 'Montserrat';
   text-align: left;
   color: var(--color-forth);
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 .signin-card input[type=submit] {
@@ -930,6 +944,8 @@ input[type=button], input[type=submit], input[type=reset] {
   padding: 1vh 25px;
   text-decoration: none;
   cursor: pointer;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 .signup-link {

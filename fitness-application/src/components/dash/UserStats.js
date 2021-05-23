@@ -1,10 +1,11 @@
 import React from 'react'
+import img from '../../assets/media/user-img.png'
 
 function UserStats(props) {
     const level = "Plus Ultra";
     const name = "Angel";
     const progress = 87;
-    const usr_profile = '../../usr_profile'
+    const usr_profile = img //'../../assets/media/user-img.png'
     const goals_left = 3;
     const streak = 7;
     const date = 120;
@@ -19,7 +20,7 @@ function UserStats(props) {
                 <div className="top-container">
                     <img src={usr_profile}/>
                     <div className="name-rank">
-                        <h1 className="name-h">Welcome back,<br /> {name}</h1>
+                        <h1 className="name-h">Welcome Back,<br /> {name}</h1>
                         <p className="rank"><span>Level -</span> {level}</p>
                         <div className="progress-bar">
                             <div className="progress" style={{width: `${progress}%`}}>{progress}%</div>
