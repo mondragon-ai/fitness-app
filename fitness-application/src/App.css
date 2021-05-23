@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:regular,bold,italic,black');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
 
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+   url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+ }
+
+ @font-face {
+  font-family: "Montserrat-black";
+  src: local("Montserrat"),
+   url("./assets/fonts/Montserrat-Black.ttf") format("truetype");
+  font-weight: bold;
+ }
+
 html {
   background: #E0E0E0;
   --family: "Montserrat";
@@ -10,7 +24,7 @@ html {
   --color-secondary: black;
   --color-third:  #252428;
   --color-forth: #E0E0E0;
-  --color-accent: red;
+  --color-accent: #FF7134;
   --g-padding: 3vh;
 }
 
@@ -32,6 +46,11 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+FontAwesomeIcon:hover{
+  color: var(--color-accent);
+}
+
+path:hover {color: var(--color-accent);}
 
 h1 { 
   font-size: var(--h1-size); 
@@ -99,12 +118,18 @@ h2 {
   color: #E0E0E0;
 }
 
+.navbar path {
+  color: var(--color-forth);
+}
+
+
+
 /**======================
  *    TOOLBAR SECTION
  *========================**/
 .toolbar {
   margin: 0px;
-  padding: 0;
+  padding: 0 0 5% 0;
   width: 100%;
   display: flex;
   position: fixed;
@@ -119,6 +144,10 @@ h2 {
 .toolbar h1 {
   margin: 1vh;
   padding: 5px;
+}
+
+.toolbar path {
+  color: var(--color-third);
 }
 
 /**======================
@@ -561,6 +590,7 @@ input[type=text] {
   border-bottom: 2px solid var(--color-third);
   padding: 0 5%;
   background-color: rgba(255, 255, 255, 0.048);
+  -webkit-appearance: none
 }
 
 input[type=text]:focus {
@@ -579,6 +609,7 @@ input[type=button], input[type=submit], input[type=reset] {
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+  -webkit-appearance: none
 }
 
 
@@ -730,6 +761,10 @@ input[type=button], input[type=submit], input[type=reset] {
   font-family: 'Montserrat-black';
 }
 
+.post-tabs path {
+  color: var(--color-third);
+}
+
 .post-stats {
   margin: 0vh;
   padding: 1vh 0;
@@ -771,7 +806,7 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 .user-comment-row {
-  margin: 1% 1.2vh;
+  margin: 1% 0% 0 0%;
   padding: 0px 0;
   width: 100%;
   height: 2.5vh;
@@ -782,11 +817,12 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 .username-comment {
-  margin: auto 0 auto 0%;
+  margin: auto 3%;
   width: 30%;
 }
 
 .username-comment h5 {
+  /* margin: auto 5%; */
   font-size: 0.5em;
   font-family: 'Montserrat';
   font-weight: bold;

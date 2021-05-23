@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import CommentSection from "./CommentSection"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp, faComments, faPaperPlane} from '@fortawesome/free-solid-svg-icons'
 
 class Post extends Component {
 
@@ -33,9 +35,9 @@ class Post extends Component {
 
                 {/* Post Tabs */}
                 <div className="post-tabs">
-                    <div className="like-btn">L</div>
-                    <div className="comment-btn">C</div>
-                    <div className="share-post">S</div>
+                    <div className="like-btn"><FontAwesomeIcon  icon={faThumbsUp} /></div>
+                    <div className="comment-btn"><FontAwesomeIcon  icon={faComments} /></div>
+                    <div className="share-post"><FontAwesomeIcon  icon={faPaperPlane} /></div>
                 </div>
 
                 {/* Stats */}

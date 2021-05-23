@@ -33,8 +33,8 @@ class SignUp extends Component {
                 <div className="signin-card">
                     <div className="logo"></div>
                     <form onSubmit={this.handleSubmit} action="">
-                        <input id="username" type="text" placeholder="User Name" value={this.state.username} onChange={this.handleChange}/>
-                        <input id="password" type="text" placeholder="Password" value={this.state.Password} onChange={this.handleChange} />
+                        <input name="username" id="username" type="text" placeholder="User Name" value={this.state.username} onChange={this.handleChange}/>
+                        <input name="password" id="password" type="text" placeholder="Password" value={this.state.Password} onChange={this.handleChange} />
                         <input value="Create Account" type="submit" />
                         <span>Have an Account? <Link className="signup-link" to="/signin">Sign In Here</Link></span>
                     </form>
