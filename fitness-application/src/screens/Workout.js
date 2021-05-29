@@ -6,7 +6,7 @@ import Slider from '../components/slider/Slider';
 import React, { Component} from 'react'
 
 const hotkeys = [
-    {id: 1, title: "Squat ", emoji: "🏋🏻‍♂️"}, 
+    {id: 1, title: "Squat ", emoji: "🏋🏻‍♂️", }, 
     {id: 2, title: "Bench ", emoji: "🏆"},
     {id: 3, title: "Deadlift ", emoji: "🏅"},
     {id: 4, title: "Create", emoji: "✍🏼"},
@@ -423,6 +423,7 @@ class Workout extends Component {
 
         this.graphToggle = this.graphToggle.bind(this);
         this.handleOpen = this.handleOpen.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     graphToggle(text) {
@@ -437,9 +438,16 @@ class Workout extends Component {
     }
 
     handleOpen(title) { 
-      console.log("Handled In parent: ", title)
+      console.log("Handled In parent: ", title);
       this.setState({
         styleProp: "slide-open"
+      })
+    }
+
+    handleClose(title) { 
+      console.log("Handled In parent: ", title);
+      this.setState({
+        styleProp: "slide"
       })
     }
 
@@ -522,7 +530,7 @@ class Workout extends Component {
                     <Calendar />
                 </div> */}
 
-                <Slider styleProp={this.state.styleProp} /> 
+                <Slider handleClose={this.handleClose}  styleProp={this.state.styleProp} /> 
 
             </div>
 
