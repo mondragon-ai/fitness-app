@@ -1,13 +1,18 @@
 import React from 'react'
 
+/**
+ * TODO: 1. 
+ * @param { value, handleOpen} = param 
+ * @returns 
+ */
 const HotKeys = ({value, handleOpen}) => {
 
-    const { emoji, title} = value;
+    const { emoji, title, slider_name} = value;
 
     // console.log(value)
     const openSlide = (event, text) => {
-        console.log("Slide Opened: ", value.id)
-        handleOpen(title);
+        console.log("Slide Opened: ", value.id, " - ", slider_name)
+        handleOpen(slider_name);
     }
 
     return (

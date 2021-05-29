@@ -192,7 +192,7 @@ h2 {
 
 
 .name-rank {
-  margin: 5% 2vw 5% 0;
+  margin: 5% 6vw 5% 0;
 }
 
 .name-rank .name-h {
@@ -540,7 +540,7 @@ h2 {
 }
 
 .pr-item {
-  border: 5px, solid, black;
+  /* border: 5px, solid, black; */
   margin: 5px;
   padding: 5% 0;
   width: 33%;
