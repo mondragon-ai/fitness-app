@@ -1,7 +1,9 @@
 import { faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 import React, { Component } from 'react';
 import Search from '../Search'
-import NewPR from './NewPR'
+import NewSquat from './NewSquat'
+import NewBench from './NewBench'
+import NewDead from './NewDead'
 import NewBody from './NewBody'
 import NewCals from './NewCals'
 
@@ -18,8 +20,12 @@ class Slider extends Component {
             target_bw: 162,
             prev_cal: 2161,
             target_BMR: 1682,
-            bw_pr: 500,
-            ppr: 405,
+            d_bw_pr: 640,
+            d_ppr: 600,
+            b_bw_pr: 350,
+            b_ppr: 300,
+            s_bw_pr: 500,
+            s_ppr: 405,
             style: "slide",
             slider_name: "BODY",
             open: false
@@ -69,7 +75,10 @@ class Slider extends Component {
                     { 
                         this.props.slider_name == "BODY" ? <NewBody values={this.state} />  : 
                         this.props.slider_name == "CALS" ? <NewCals values={this.state} /> :
-                        this.props.slider_name == "SQUAT" ?  <NewPR values={this.state} />  : null
+                        this.props.slider_name == "SQUAT" ?  <NewSquat values={this.state} />  : 
+                        this.props.slider_name == "BENCH" ? <NewBench values={this.state} />  :
+                        this.props.slider_name == "DEAD" ? <NewDead values={this.state} />  :
+                        this.props.slider_name == "CREATE" ? null : null
                     }
                 </div>
     

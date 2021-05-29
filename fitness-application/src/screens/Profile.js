@@ -1,11 +1,12 @@
 
-import UserStats from '../components/dash/UserStats'
-import HotKeys from '../components/dash/HotKeys'
-import UserFeed from '../components/feed/UserFeed'
+import UserStats from '../components/dash/UserStats';
+import HotKeys from '../components/dash/HotKeys';
+import UserFeed from '../components/feed/UserFeed';
+import { connect } from 'react-redux';
 
 import React from 'react'
 
-const Profile = () => {
+const Profile = ({user_info}) => {
     const hotkeys = [
         {id: 1, title: "Add Workout", emoji: "🦄"}, 
         {id: 2, title: "Add PR", emoji: "🏋🏻‍♀️"},
@@ -19,10 +20,12 @@ const Profile = () => {
         {id: 3, title: "Followers", subtitle: ""}, 
     ];
 
+    
+
     return (
         <div>
 
-            <UserStats value={quickStats} /> 
+            <UserStats user_info={user_info} value={quickStats} /> 
 
             <UserFeed />
             
@@ -30,4 +33,7 @@ const Profile = () => {
     )
 }
 
-export default Profile
+const mapStateToProps = (state) => {
+    return { user_info: state.auth}
+}
+export default connect(mapStateToProps)(Profile)

@@ -3,10 +3,11 @@ import UserStats from '../components/dash/UserStats';
 import HotKeys from '../components/dash/HotKeys';
 import Calander from '../components/dash/Calander';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import React from 'react'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const hotkeys = [
         {id: 1, title: "Workout", emoji: "✍🏼", to: "/workout", type: "CREATE" }, 
         {id: 2, title: "Add PR", emoji: "🏋🏻‍♀️", to: "/workout", type: "NONE" },
@@ -20,14 +21,14 @@ const Dashboard = () => {
         {id: 3, title: "Next Goal", subtitle: "Days"}, 
     ];
 
-    function handleOpen(title) { 
+    function handleOpen(title) 
+    { 
         console.log("Handled In parent: ", title)
-        
     }
 
     return (
         <div>
-            <UserStats value={quickStats} /> 
+            <UserStats user_info={props.user_info} value={quickStats} /> 
 
             <div className="grid-container">
                 {hotkeys.map( (button) => {
@@ -48,4 +49,8 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+const maptStateToProps = (state) => {
+    return { user_info: state.auth}
+}
+
+export default connect(maptStateToProps)(Dashboard)

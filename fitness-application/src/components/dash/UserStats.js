@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../../assets/media/user-img.png'
+// import img from '../../assets/media/user-img.png'
 
 
 /**
@@ -13,20 +13,14 @@ import img from '../../assets/media/user-img.png'
  * @returns UserStats jsx for profiel or dash
  */
 
-const UserStats = (props) => {
+const UserStats = ({ value, user_info}) => {
 
     const state = {
-        level: "Plus Ultra",
-        name: "Angel",
-        progress: 87,
-        usr_profile: img,
-        goals_left: 3,
-        streak: 7,
-        date: 120,
         url_param: 'dash'
     }
 
-    const { value } = props
+    // const { value } = props
+    const { level, name, progress, usr_profile, goals_left, streak, date } = user_info
 
     console.log(value)
 
@@ -34,12 +28,12 @@ const UserStats = (props) => {
         <div className="quick-stats" > 
 
                 <div className="top-container">
-                    <img src={state.usr_profile}/>
+                    <img src={usr_profile}/>
                     <div className="name-rank">
-                        <h1 className="name-h">Welcome Back,<br /> {state.name}</h1>
-                        <p className="rank"><span>Level -</span> {state.level}</p>
+                        <h1 className="name-h">Welcome Back,<br /> {name}</h1>
+                        <p className="rank"><span>Level -</span> {level}</p>
                         <div className="progress-bar">
-                            <div className="progress" style={{width: `${state.progress}%`}}>{state.progress}%</div>
+                            <div className="progress" style={{width: `${progress}%`}}>{progress}%</div>
                         </div>
                     </div>
                 </div>
@@ -47,21 +41,21 @@ const UserStats = (props) => {
                 <div className="bottom-container">
                     <div className="goals">
                         <div className="stats">
-                            <h1>{state.goals_left}</h1>
+                            <h1>{goals_left}</h1>
                             <span>{value[0].subtitle}</span>
                         </div>
                         <h1>{value[0].title}</h1>
                     </div>
                     <div className="streak">
                         <div className="stats">
-                            <h1>{state.streak}</h1>
+                            <h1>{streak}</h1>
                             <span>{value[1].subtitle}</span>
                         </div>
                         <h1>{value[1].title}</h1>
                     </div>
                     <div className="date">
                         <div className="stats">
-                            <h1>{state.date}</h1>
+                            <h1>{date}</h1>
                             <span>{value[2].subtitle}</span>
                         </div>
                         <h1>{value[2].title}</h1>
@@ -71,7 +65,5 @@ const UserStats = (props) => {
         </div>
     )
 }
-
-
 
 export default UserStats

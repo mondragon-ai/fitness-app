@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-class NewPR extends Component {
+class NewBench extends Component {
 
     constructor(props) {
         super(props);
@@ -26,7 +26,7 @@ class NewPR extends Component {
 
     render() {
 
-        const {bw_pr, ppr} = this.props.values
+        const {b_bw_pr, b_ppr} = this.props.values
 
         return (
 
@@ -38,12 +38,12 @@ class NewPR extends Component {
                     </div>
     
                     <div className="pr-item ">
-                        <h1>{ppr}<p>Lbs</p></h1>
+                        <h1>{b_ppr}<p>Lbs</p></h1>
                         <p>Current PR</p>
                     </div>
                     
                     <div className="pr-item">
-                        <h1>{bw_pr}<p>Lbs</p></h1>
+                        <h1>{b_bw_pr}<p>Lbs</p></h1>
                         <p>Target PR</p>
                     </div>
                 </div>
@@ -59,4 +59,4 @@ class NewPR extends Component {
     
 }
 
-export default NewPR
+export default NewBench

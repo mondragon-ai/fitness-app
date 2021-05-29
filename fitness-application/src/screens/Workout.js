@@ -6,10 +6,10 @@ import Slider from '../components/slider/Slider';
 import React, { Component} from 'react'
 
 const hotkeys = [
-    {id: 1, title: "Squat ", emoji: "🏋🏻‍♂️", }, 
-    {id: 2, title: "Bench ", emoji: "🏆"},
-    {id: 3, title: "Deadlift ", emoji: "🏅"},
-    {id: 4, title: "Create", emoji: "✍🏼"},
+    {id: 1, title: "Squat ", emoji: "🏋🏻‍♂️", slider_name: "SQUAT"}, 
+    {id: 2, title: "Bench ", emoji: "🏆", slider_name: "BENCH"},
+    {id: 3, title: "Deadlift ", emoji: "🏅", slider_name: "DEAD"},
+    {id: 4, title: "Create", emoji: "✍🏼", slider_name: "CREATE"},
 ];
 
 class Workout extends Component {
@@ -19,6 +19,7 @@ class Workout extends Component {
 
         this.state={
           styleProp: "slide",
+          slider_name: "SQUAT",
           total: 1220,
           squat: 405,
           bench: 315,
@@ -437,10 +438,11 @@ class Workout extends Component {
 
     }
 
-    handleOpen(title) { 
-      console.log("Handled In parent: ", title);
+    handleOpen(slider_type) { 
+      console.log("Handled In parent: ", slider_type);
       this.setState({
-        styleProp: "slide-open"
+        styleProp: "slide-open",
+        slider_name: slider_type
       })
     }
 
@@ -530,7 +532,7 @@ class Workout extends Component {
                     <Calendar />
                 </div> */}
 
-                <Slider handleClose={this.handleClose}  styleProp={this.state.styleProp} /> 
+                <Slider handleClose={this.handleClose}  styleProp={this.state.styleProp} slider_name={this.state.slider_name} /> 
 
             </div>
 
