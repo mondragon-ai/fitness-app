@@ -1,17 +1,18 @@
 import React from 'react'
 
 /**
- * TODO: 1. 
- * @param { value, handleOpen} = param 
+ * * Hot Key Tab Modular: Nav or Slider Opener
+ * TODO: 1: Clean
+ * @param { value, handleOpen} = prop 
  * @returns 
  */
 const HotKeys = ({value, handleOpen}) => {
 
     const { emoji, title, slider_name} = value;
 
-    // console.log(value)
-    const openSlide = (event, text) => {
-        console.log("Slide Opened: ", value.id, " - ", slider_name)
+    const openSlide = (event, text) => 
+    {
+        //console.log("Slide Opened: ", value.id, " - ", slider_name)
         handleOpen(slider_name);
     }
 

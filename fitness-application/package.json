@@ -17,10 +17,14 @@
     "react-calendar": "^3.4.0",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.4",
+    "react-redux-firebase": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-search-autocomplete": "^5.1.0",
     "redux": "^4.1.0",
+    "redux-firestore": "^0.15.0",
+    "redux-thunk": "^2.3.0",
+    "thunk": "0.0.1",
     "web-vitals": "^1.1.1"
   },
   "scripts": {

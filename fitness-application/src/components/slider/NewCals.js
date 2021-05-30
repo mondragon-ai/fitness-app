@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { addCalsAction } from '../../store/actions/bodyAction'
+
 
 /**
- * * Submut new Daily Cals to DB
- * TODO: Connect Dispatch to the props
+ * * Submit new Cals to DB
+ * TODO: 1. Connect Dispatch to the props
+ * TODO: 2. Data Check before submitting
  * ? Add Listener? 
  */
 class NewCals extends Component {
@@ -18,7 +21,6 @@ class NewCals extends Component {
         // Bind Helper Fns
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
     }
 
     /**
@@ -36,6 +38,11 @@ class NewCals extends Component {
     {
         event.preventDefault();
         this.props.close(this.state.value)
+
+        // TODO: 2. ^^^
+        if (this.state.value > 0) {
+            this.props.add_cals(this.state.value)
+        }
     }
 
     render() 
@@ -73,8 +80,16 @@ class NewCals extends Component {
     
 }
 
+// * Mapping Body Data to Props
 const mapStateToProps = (state) => {
     return { body: state.body }
 }
 
-export default connect(mapStateToProps)(NewCals)
+// * Mapping Dispatched Actions to Props
+const mapDispatchToState = (dispatch) => {
+    return { 
+        add_cals: (cals) => dispatch(addCalsAction(cals)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToState)(NewCals)

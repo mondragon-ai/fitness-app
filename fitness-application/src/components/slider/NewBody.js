@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { addBWAction } from '../../store/actions/bodyAction';
 
 /**
  * * Submut new BW to DB
- * TODO: Connect Dispatch to the props
+ * TODO: 1. Connect Dispatch to the props
+ * TODO: 2. Data Check before submitting
  * ? Add Listener? 
  */
 class NewBody extends Component {
@@ -27,16 +29,19 @@ class NewBody extends Component {
     handleChange(event) { this.setState({value: event.target.value}); }
 
     /**
-     * Pass Data to Parent for data check & 
-     * ? Data Check here? 
+     * Pass Data to Parent for data check & Subumt
      * @param {*} event 
      */
     handleSubmit(event) 
     {
         // alert('A name was submitted: ' + this.state.value);
-
         event.preventDefault();
         this.props.close(this.state.value)
+
+        // TODO: 2. ^^^
+        if (this.state.value > 0) {
+            this.props.add_bw(this.state.value)
+        }
     }
 
     render() {
@@ -64,7 +69,7 @@ class NewBody extends Component {
                 </div>
     
                 <div className="submit-pr">
-                    <input type="submit" value="Lets Go" />
+                    <input type="submit" value="Lets Go!" />
                 </div>
             </form>
 
@@ -73,7 +78,17 @@ class NewBody extends Component {
     }
     
 }
+
+// * Mapping Body Data to Props
 const mapStateToProps = (state) => {
     return { body: state.body }
 }
-export default connect(mapStateToProps)(NewBody)
+
+// * Mapping Dispatched Actions to Props
+const mapDispatchToState = (dispatch) => {
+    return { 
+        add_bw: (bw) => dispatch(addBWAction(bw)),
+    }
+}
+  
+export default connect(mapStateToProps, mapDispatchToState)(NewBody)

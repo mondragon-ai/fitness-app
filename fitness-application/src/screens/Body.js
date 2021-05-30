@@ -4,7 +4,6 @@ import Slider from '../components/slider/Slider';
 
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
-import { addBWAction } from '../store/actions/bodyAction';
 
 // * For HotKey & Action
 const hotkeys = [
@@ -85,19 +84,18 @@ class Body extends Component {
     // * Open Slide & Change syle: slide & Handle Push to DB
     handleClose(slider_type, payload) 
     { 
-      console.log("Handled In parent: ", slider_type, " - PayLoad:  ", payload)
+        console.log("Handled In parent: ", slider_type, " - PayLoad:  ", payload)
 
-      // TODO: 3. ^^^
-      // const p = this.checkInput(payload) 
-      
-      // TODO: 4. ^^^
-      // this.props.submitBodyData(slider_type, p)
-      
+        // TODO: 3. ^^^
+        // const p = this.checkInput(payload) 
+        
+        // TODO: 4. ^^^
+        // this.props.submitBodyData(slider_type, p)
 
-      this.setState({
-        styleProp: "slide",
-        slider_name: ""
-      })
+        this.setState({
+            styleProp: "slide",
+            slider_name: ""
+        })
     }
 
     render() {
@@ -167,13 +165,5 @@ const mapStateToProps = (state) => {
   return { body: state.body.graph }
 }
 
-// * Mapping Dispatched Actions  to Props
-const mapDispatchToState = (dispatch) => {
-    return { 
-        add_bw: (bw) => dispatch(addBWAction(bw)),
-    }
-  }
-  
-
 // TODO: 4. Compose lisenter & Add Dispatch/Store to props
-export default connect(mapStateToProps, mapDispatchToState)(Body);
+export default connect(mapStateToProps)(Body);

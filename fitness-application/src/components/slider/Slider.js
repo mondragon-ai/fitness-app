@@ -10,13 +10,14 @@ import NewCals from './NewCals'
 
 
 /**
- * TODO: 1. Link Debuh  
+ * TODO: 1. Link Debug 
  * TODO: 2. Assing keys to vlaues dynamically from Store [ln - 1] 
  * @param {body_metrics, workout_tracking} = props
  * */
  class Slider extends Component {
 
-    constructor(props) {
+    constructor(props) 
+    {
         super()
 
         this.state = {
@@ -26,18 +27,11 @@ import NewCals from './NewCals'
         }
 
         this.closeSlide = this.closeSlide.bind(this);
-        // this.closeSlide = this.props.handleClose().bind(this)
     }
 
-    selectedSearch = (item) => {
+    selectedSearch = (item) => { console.log('Parent: ', item); }
 
-        console.log('Parent: ', item);
-
-    }
-
-    closeSlide(payload){
-        // console.log( `\n\n ${this.props.slider_name} CLOSED`)
-        this.props.handleClose(this.props.slider_name, payload)
+    closeSlide(payload) { this.props.handleClose(this.props.slider_name, payload)
 
     }
 

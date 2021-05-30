@@ -179,7 +179,29 @@ const initState = {
 }
 
 const bodyReducer = ( state = initState, action) => {
-    return state;
+
+    switch (action.type) {
+        case 'ADD_NEW_BW': {
+            console.log('ADD_NEW_BW', action)
+
+            return {
+                ...state,
+                current_bw: action.bw
+            };
+        }
+
+        case 'ADD_DAILY_CALS': {
+            console.log('ADD_DAILY_CALS', action)
+
+            return {
+                ...state,
+                prev_cal: action.cals
+            };
+        }
+
+        default:
+            return state;
+    }
 }
 
 export default bodyReducer;
