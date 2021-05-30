@@ -2,6 +2,7 @@ import HotKeys from '../components/dash/HotKeys'
 import Graph from '../components/graph/Graph';
 import Calendar from '../components/dash/Calander';
 import Slider from '../components/slider/Slider';
+import { connect } from 'react-redux'
 
 import React, { Component} from 'react'
 
@@ -12,6 +13,14 @@ const hotkeys = [
     {id: 4, title: "Create", emoji: "✍🏼", slider_name: "CREATE"},
 ];
 
+/**
+ * * Graph of BW/Cals Over Time & Push New Data 
+ * TODO: 1. Create BW Change Helper Fn
+ * TODO: 2. Create BMR Helper Fn
+ * TODO: 3. Create Data Check Helper Fn
+ * TODO: 4. Link Dispatch to Prop & Push Data on Submit
+ * @params {graph, body_metrics} = props.body
+ */
 class Workout extends Component {
 
     constructor() {
@@ -540,4 +549,8 @@ class Workout extends Component {
     }
 }
 
-export default Workout;
+const mapStateToProps = (state) => {
+  return null
+}
+
+export default connect(mapStateToProps)(Workout);

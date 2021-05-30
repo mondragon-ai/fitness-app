@@ -18,11 +18,12 @@ class NewBody extends Component {
       }
     
       handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
+        // alert('A name was submitted: ' + this.state.value);
 
         // Call Action & Pass State 
 
         event.preventDefault();
+        this.props.close(this.state.value)
     }
 
     render() {

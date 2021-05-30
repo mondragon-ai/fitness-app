@@ -8,7 +8,13 @@ import NewBody from './NewBody'
 import NewCals from './NewCals'
 
 
-class Slider extends Component {
+
+/**
+ * TODO: 1. Link to Store 
+ * TODO: 2. Assing keys to vlaues dynamically from Store [ln - 1] 
+ * @param {body_metrics, workout_tracking} = props
+ * */
+ class Slider extends Component {
 
     constructor(props) {
         super()
@@ -42,19 +48,10 @@ class Slider extends Component {
 
     }
 
-    // componentDidUpdate() {
-    //     console.log('Slider-Style (SLIDER):', this.props);
-    //     if (this.state.open == false) {
-    //         this.setState({
-    //             style: this.props.styleProp,
-    //             open: true
-    //         });
-    //     }
-    // }
+    closeSlide(payload){
+        // console.log( `\n\n ${this.props.slider_name} CLOSED`)
+        this.props.handleClose(this.props.slider_name, payload)
 
-    closeSlide(){
-        console.log( `\n\n ${this.props.slider_name} CLOSED`)
-        this.props.handleClose(this.props.slider_name)
     }
 
     render() {
@@ -67,21 +64,21 @@ class Slider extends Component {
                     <div onClick={() => this.closeSlide()} className=""></div>
                 </div>
     
-                {/* Search 
+                {/* Search TODO
                 <Search searchFn={(item) => selectedSearch(item)} /> */}
     
                 {/* Header */}
                 <div className="slider-container">
                     { 
-                        this.props.slider_name == "BODY" ? <NewBody values={this.state} />  : 
-                        this.props.slider_name == "CALS" ? <NewCals values={this.state} /> :
+                        this.props.slider_name == "BODY" ? <NewBody close={this.closeSlide}  values={this.state} />  : 
+                        this.props.slider_name == "CALS" ? <NewCals close={this.closeSlide} values={this.state} /> :
                         this.props.slider_name == "SQUAT" ?  <NewSquat values={this.state} />  : 
                         this.props.slider_name == "BENCH" ? <NewBench values={this.state} />  :
                         this.props.slider_name == "DEAD" ? <NewDead values={this.state} />  :
                         this.props.slider_name == "CREATE" ? null : null
                     }
                 </div>
-    
+
                 {/* Flow Form */}
     
             </div>

@@ -13,19 +13,22 @@ class NewBody extends Component {
         
       }
     
-      handleChange(event) {
+      handleChange(event) 
+      {
         this.setState({value: event.target.value});
       }
     
-      handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
-
+      handleSubmit(event) 
+      {
+        // alert('A name was submitted: ' + this.state.value);
         // Call Action & Pass State 
-
         event.preventDefault();
+
+        this.props.close(this.state.value)
     }
 
-    render() {
+    render() 
+    {
 
         const {target_BMR, prev_cal} = this.props.values
 
