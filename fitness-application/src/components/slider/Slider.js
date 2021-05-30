@@ -10,7 +10,7 @@ import NewCals from './NewCals'
 
 
 /**
- * TODO: 1. Link to Store 
+ * TODO: 1. Link Debuh  
  * TODO: 2. Assing keys to vlaues dynamically from Store [ln - 1] 
  * @param {body_metrics, workout_tracking} = props
  * */
@@ -20,18 +20,9 @@ import NewCals from './NewCals'
         super()
 
         this.state = {
-
             id: 2,
-            d_bw_pr: 640,
-            d_ppr: 600,
-            b_bw_pr: 350,
-            b_ppr: 300,
-            s_bw_pr: 500,
-            s_ppr: 405,
             style: "slide",
             slider_name: "BODY",
-            open: false
-
         }
 
         this.closeSlide = this.closeSlide.bind(this);

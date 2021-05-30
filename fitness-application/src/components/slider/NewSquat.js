@@ -41,8 +41,7 @@ class NewSquat extends Component {
         this.calculatePR(this.props.body.current_bw) 
         console.log("NEW SQUAT PR: ", this.props.body.current_bw)
     }
-
-
+    
     /**
      * Handle Change
      * @param {*} event 

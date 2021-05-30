@@ -5,6 +5,8 @@ const initState = {
     target_BMR: 1950,
     prev_cal: 2000,
     d_ppr: 595,
+    s_ppr: 405,
+    b_ppr: 275,
     graph: {
         calories_data: [
             {
