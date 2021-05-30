@@ -3,24 +3,33 @@ import React, { Component } from 'react'
 
 class NewBody extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor(props) 
+    {
+        super();
 
+        // State
         this.state = {value: ''};
-    
+
+        // Bind Helper Fns
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         
-      }
+    }
     
-      handleChange(event) {
-        this.setState({value: event.target.value});
-      }
-    
-      handleSubmit(event) {
-        // alert('A name was submitted: ' + this.state.value);
+    /**
+     * Handle Change
+     * @param {*} event 
+     */
+    handleChange(event) { this.setState({value: event.target.value}); }
 
-        // Call Action & Pass State 
+    /**
+     * Pass Data to Parent for data check & 
+     * ? Data Check here? 
+     * @param {*} event 
+     */
+    handleSubmit(event) 
+    {
+        // alert('A name was submitted: ' + this.state.value);
 
         event.preventDefault();
         this.props.close(this.state.value)

@@ -15,420 +15,26 @@ const hotkeys = [
 
 /**
  * * Graph of BW/Cals Over Time & Push New Data 
- * TODO: 1. Create BW Change Helper Fn
- * TODO: 2. Create BMR Helper Fn
- * TODO: 3. Create Data Check Helper Fn
- * TODO: 4. Link Dispatch to Prop & Push Data on Submit
+ * TODO: 1. Create Data Check Helper Fn
+ * TODO: 2. Link Dispatch to Prop & Push Data on Submit
+ * TODO: 3. Clean & Delete Usless Code
+ * ? Create BW PR here ?
  * @params {graph, body_metrics} = props.body
  */
 class Workout extends Component {
 
-    constructor() {
+    constructor(props) {
         super();
 
         this.state={
           styleProp: "slide",
-          slider_name: "SQUAT",
-          total: 1220,
-          squat: 405,
-          bench: 315,
-          deadlift: 500,
+          slider_name: "",
+          total: props.lifts.total,
+          squat: props.lifts.squat,
+          bench: props.lifts.bench,
+          deadlift: props.lifts.deadlift,
           graph_data: "TOTAL",
-          data: {
-
-              total_list: [
-                  {
-                    "id": "Total Number",
-                    "color": "rgb(244,109,67)",
-                    "data": [
-                      {
-                        "x": "Mar 16 21",
-                        "y": 1654
-                      },
-                      {
-                        "x": "Mar 17 21",
-                        "y": 1635
-                      },
-                      {
-                        "x": "Mar 18 21",
-                        "y": 1617
-                      },
-                      {
-                        "x": "Mar 19 21",
-                        "y": 1594
-                      },
-                      {
-                        "x": "Mar 20 21",
-                        "y": 1625
-                      },
-                      {
-                        "x": "Mar 21 21",
-                        "y": 1606
-                      },
-                      {
-                        "x": "Mar 22 21",
-                        "y": 1584
-                      },
-                      {
-                        "x": "Mar 23 21",
-                        "y": 1606
-                      },
-                      {
-                        "x": "Mar 24 21",
-                        "y": 1593
-                      },
-                      {
-                        "x": "Mar 25 21",
-                        "y": 1580
-                      },
-                      {
-                        "x": "Mar 26 21",
-                        "y": 1579
-                      },
-                      {
-                        "x": "Mar 27 21",
-                        "y": 1579
-                      }
-                    ]
-                  },
-                  {
-                    "id": "Squat",
-                    "color": "rgb(160, 34, 2)",
-                    "data": [
-                      {
-                        "x": "Mar 16 21",
-                        "y": 395
-                      },
-                      {
-                        "x": "Mar 17 21",
-                        "y": 405
-                      },
-                      {
-                        "x": "Mar 18 21",
-                        "y": 415
-                      },
-                      {
-                        "x": "Mar 19 21",
-                        "y": 428
-                      },
-                      {
-                        "x": "Mar 20 21",
-                        "y": 434
-                      },
-                      {
-                        "x": "Mar 21 21",
-                        "y": 445
-                      },
-                      {
-                        "x": "Mar 22 21",
-                        "y": 454
-                      },
-                      {
-                        "x": "Mar 23 21",
-                        "y": 469
-                      },
-                      {
-                        "x": "Mar 24 21",
-                        "y": 472
-                      },
-                      {
-                        "x": "Mar 25 21",
-                        "y": 486
-                      },
-                      {
-                        "x": "Mar 26 21",
-                        "y": 495
-                      },
-                      {
-                        "x": "Mar 27 21",
-                        "y": 500
-                      }
-                    ]
-                  },
-                  {
-                      "id": "Deadlift",
-                      "color": "rgb(160, 34, 2)",
-                      "data": [
-                          {
-                          "x": "Mar 16 21",
-                          "y": 495
-                          },
-                          {
-                          "x": "Mar 17 21",
-                          "y": 500
-                          },
-                          {
-                          "x": "Mar 18 21",
-                          "y": 510
-                          },
-                          {
-                          "x": "Mar 19 21",
-                          "y": 520
-                          },
-                          {
-                          "x": "Mar 20 21",
-                          "y": 530
-                          },
-                          {
-                          "x": "Mar 21 21",
-                          "y": 540
-                          },
-                          {
-                          "x": "Mar 22 21",
-                          "y": 550
-                          },
-                          {
-                          "x": "Mar 23 21",
-                          "y": 560
-                          },
-                          {
-                          "x": "Mar 24 21",
-                          "y": 570
-                          },
-                          {
-                          "x": "Mar 25 21",
-                          "y": 580
-                          },
-                          {
-                          "x": "Mar 26 21",
-                          "y": 590
-                          },
-                          {
-                          "x": "Mar 27 21",
-                          "y": 600
-                          }
-                      ]
-                  },
-                  {
-                      "id": "Bench",
-                      "color": "rgb(160, 34, 2)",
-                      "data": [
-                          {
-                          "x": "Mar 16 21",
-                          "y": 205
-                          },
-                          {
-                          "x": "Mar 17 21",
-                          "y": 215
-                          },
-                          {
-                          "x": "Mar 18 21",
-                          "y": 229
-                          },
-                          {
-                          "x": "Mar 19 21",
-                          "y": 235
-                          },
-                          {
-                          "x": "Mar 20 21",
-                          "y": 247
-                          },
-                          {
-                          "x": "Mar 21 21",
-                          "y": 259
-                          },
-                          {
-                          "x": "Mar 22 21",
-                          "y": 268
-                          },
-                          {
-                          "x": "Mar 23 21",
-                          "y": 277
-                          },
-                          {
-                          "x": "Mar 24 21",
-                          "y": 287
-                          },
-                          {
-                          "x": "Mar 25 21",
-                          "y": 298
-                          },
-                          {
-                          "x": "Mar 26 21",
-                          "y": 305
-                          },
-                          {
-                          "x": "Mar 27 21",
-                          "y": 315
-                          }
-                      ]
-                  },
-              ],
-
-              squat_list: [
-                  {
-                      "id": "Squat",
-                      "color": "rgb(160, 34, 2)",
-                      "data": [
-                          {
-                          "x": "Mar 16 21",
-                          "y": 395
-                          },
-                          {
-                          "x": "Mar 17 21",
-                          "y": 405
-                          },
-                          {
-                          "x": "Mar 18 21",
-                          "y": 415
-                          },
-                          {
-                          "x": "Mar 19 21",
-                          "y": 428
-                          },
-                          {
-                          "x": "Mar 20 21",
-                          "y": 434
-                          },
-                          {
-                          "x": "Mar 21 21",
-                          "y": 445
-                          },
-                          {
-                          "x": "Mar 22 21",
-                          "y": 454
-                          },
-                          {
-                          "x": "Mar 23 21",
-                          "y": 469
-                          },
-                          {
-                          "x": "Mar 24 21",
-                          "y": 472
-                          },
-                          {
-                          "x": "Mar 25 21",
-                          "y": 486
-                          },
-                          {
-                          "x": "Mar 26 21",
-                          "y": 495
-                          },
-                          {
-                          "x": "Mar 27 21",
-                          "y": 500
-                          }
-                      ]
-                  },
-                
-              ],
-
-              bench_list: [
-                  {
-                      "id": "Bench",
-                      "color": "rgb(160, 34, 2)",
-                      "data": [
-                          {
-                          "x": "Mar 16 21",
-                          "y": 205
-                          },
-                          {
-                          "x": "Mar 17 21",
-                          "y": 215
-                          },
-                          {
-                          "x": "Mar 18 21",
-                          "y": 229
-                          },
-                          {
-                          "x": "Mar 19 21",
-                          "y": 235
-                          },
-                          {
-                          "x": "Mar 20 21",
-                          "y": 247
-                          },
-                          {
-                          "x": "Mar 21 21",
-                          "y": 259
-                          },
-                          {
-                          "x": "Mar 22 21",
-                          "y": 268
-                          },
-                          {
-                          "x": "Mar 23 21",
-                          "y": 277
-                          },
-                          {
-                          "x": "Mar 24 21",
-                          "y": 287
-                          },
-                          {
-                          "x": "Mar 25 21",
-                          "y": 298
-                          },
-                          {
-                          "x": "Mar 26 21",
-                          "y": 305
-                          },
-                          {
-                          "x": "Mar 27 21",
-                          "y": 315
-                          }
-                      ]
-                  },
-                
-              ],
-
-              deadlift_list: [
-                  {
-                      "id": "Deadlift",
-                      "color": "rgb(160, 34, 2)",
-                      "data": [
-                          {
-                          "x": "Mar 16 21",
-                          "y": 495
-                          },
-                          {
-                          "x": "Mar 17 21",
-                          "y": 500
-                          },
-                          {
-                          "x": "Mar 18 21",
-                          "y": 510
-                          },
-                          {
-                          "x": "Mar 19 21",
-                          "y": 520
-                          },
-                          {
-                          "x": "Mar 20 21",
-                          "y": 530
-                          },
-                          {
-                          "x": "Mar 21 21",
-                          "y": 540
-                          },
-                          {
-                          "x": "Mar 22 21",
-                          "y": 550
-                          },
-                          {
-                          "x": "Mar 23 21",
-                          "y": 560
-                          },
-                          {
-                          "x": "Mar 24 21",
-                          "y": 570
-                          },
-                          {
-                          "x": "Mar 25 21",
-                          "y": 580
-                          },
-                          {
-                          "x": "Mar 26 21",
-                          "y": 590
-                          },
-                          {
-                          "x": "Mar 27 21",
-                          "y": 600
-                          }
-                      ]
-                  },
-                
-              ]
-          }
+          data: props.graph
         }
 
         this.graphToggle = this.graphToggle.bind(this);
@@ -437,7 +43,7 @@ class Workout extends Component {
     }
 
     graphToggle(text) {
-        console.log("Graph Date: ", text);
+        // console.log("Graph Date: ", text);
 
         if (this.state.graph_data != text) {
             this.setState({
@@ -448,15 +54,22 @@ class Workout extends Component {
     }
 
     handleOpen(slider_type) { 
-      console.log("Handled In parent: ", slider_type);
+      // console.log("Handled In parent: ", slider_type);
       this.setState({
         styleProp: "slide-open",
         slider_name: slider_type
       })
     }
 
-    handleClose(title) { 
-      console.log("Handled In parent: ", title);
+    handleClose(slider_type, payload) { 
+      console.log("Handled In parent: ", slider_type, " - PayLoad:  ", payload);
+
+      // TODO: 1. ^^^
+      // const p = this.checkInput(payload) 
+      
+      // TODO: 2. ^^^
+      // this.props.submitBodyData(slider_type, p)
+
       this.setState({
         styleProp: "slide"
       })
@@ -550,7 +163,10 @@ class Workout extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return null
+  return { 
+    graph: state.workout.graph,
+    lifts: state.workout
+  }
 }
 
 export default connect(mapStateToProps)(Workout);

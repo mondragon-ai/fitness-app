@@ -12,17 +12,22 @@ class NewBench extends Component {
         
       }
     
-      handleChange(event) {
-        this.setState({value: event.target.value});
+      /**
+       * Handle Change
+       * @param {*} event 
+       */
+      handleChange(event) { this.setState({value: event.target.value}); }
+  
+      /**
+       * Pass Data to Parent for data check & 
+       * ? Data Check here? 
+       * @param {*} event 
+       */
+      handleSubmit(event) 
+      {
+      event.preventDefault();
+      this.props.close(this.state.value)
       }
-    
-      handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
-
-        // Call Action & Pass State 
-
-        event.preventDefault();
-    }
 
     render() {
 

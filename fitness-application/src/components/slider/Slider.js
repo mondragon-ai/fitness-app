@@ -72,9 +72,9 @@ import NewCals from './NewCals'
                     { 
                         this.props.slider_name == "BODY" ? <NewBody close={this.closeSlide}  values={this.state} />  : 
                         this.props.slider_name == "CALS" ? <NewCals close={this.closeSlide} values={this.state} /> :
-                        this.props.slider_name == "SQUAT" ?  <NewSquat values={this.state} />  : 
-                        this.props.slider_name == "BENCH" ? <NewBench values={this.state} />  :
-                        this.props.slider_name == "DEAD" ? <NewDead values={this.state} />  :
+                        this.props.slider_name == "SQUAT" ?  <NewSquat  close={this.closeSlide} values={this.state} />  : 
+                        this.props.slider_name == "BENCH" ? <NewBench  close={this.closeSlide} values={this.state} />  :
+                        this.props.slider_name == "DEAD" ? <NewDead  close={this.closeSlide} values={this.state} />  :
                         this.props.slider_name == "CREATE" ? null : null
                     }
                 </div>

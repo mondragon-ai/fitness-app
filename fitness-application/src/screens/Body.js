@@ -5,16 +5,15 @@ import Slider from '../components/slider/Slider';
 import React, { Component} from 'react'
 import { connect } from 'react-redux';
 
+// For HotKey & Action
 const hotkeys = [
     {id: 1, title: "Daily Calories", emoji: "🍱", slider_name: "CALS"}, 
     {id: 2, title: "Body Weight", emoji: "🏋🏻‍♀️", slider_name: "BODY"},
 ];
 
-
+// Dynamic str label based on data
 const bw_header = (top_number) => {return (<div className="graph-header-text"><h1 className="">{top_number}</h1><span>lbs</span></div> ) } 
 const cals_header = (top_number) => {return (<div className="graph-header-text"><h1 className="">{top_number}</h1><span>kcal</span></div> ) } 
-
-
 
 /**
  * * Graph of BW/Cals Over Time & Push New Data 
@@ -22,32 +21,34 @@ const cals_header = (top_number) => {return (<div className="graph-header-text">
  * TODO: 2. Create BMR Helper Fn
  * TODO: 3. Create Data Check Helper Fn
  * TODO: 4. Link Dispatch to Prop & Push Data on Submit
+ * TODO: 5. Clean
  * @params {graph, body_metrics} = props.body
  */
 class Body extends Component {
     
     constructor(props) {
         super();
-
+        // BW Array
         const bw_data = props.body.bw_data[0].data;;
         const prev_bw = bw_data[bw_data.length - 1].y;
-        const change = prev_bw - bw_data[bw_data.length - 2].y + 0.24;
 
-        const week01 = bw_data.slice(0, bw_data.length - 8);
-        const week02 = bw_data.slice(bw_data.length - 7);
-
+        // Calorie Array
         const cal_data = props.body.calories_data[0].data;
         const prev_cal = cal_data[cal_data.length - 1].y;
 
-        console.log(bw_data)
-        console.log(week01)
-        console.log(week02)
-        this.state={
+        // TODO: 1.
+        const change = prev_bw - bw_data[bw_data.length - 2].y + 0.24;
+        
+        // TODO: 2.
+        // const week01 = bw_data.slice(0, bw_data.length - 8);
+        // const week02 = bw_data.slice(bw_data.length - 7);
+
+        this.state = {
           styleProp: "slide",
           slider_name: "BODY",
           graph_data: "BW",
-          bw: prev_bw, //155,
-          bw_change: change, //+0.8,
+          bw: prev_bw, 
+          bw_change: change, 
           bmr: prev_cal,
           calories: prev_cal,
           data: props.body
@@ -61,7 +62,6 @@ class Body extends Component {
     
 
     graphToggle(text) {
-        console.log("Graph Date: ", text);
 
         if (this.state.graph_data != text) {
             this.setState({
@@ -71,22 +71,24 @@ class Body extends Component {
 
     }
 
-    handleOpen(slider_type) { 
-      // console.log("Handled In parent: ", slider_type)
+    handleOpen(slider_type) 
+    { 
       this.setState({
         styleProp: "slide-open",
         slider_name: `${slider_type}`
       })
     }
 
-    handleClose(slider_type, payload) { 
+    handleClose(slider_type, payload) 
+    { 
       console.log("Handled In parent: ", slider_type, " - PayLoad:  ", payload)
 
+      // TODO: 3. ^^^
       // const p = this.checkInput(payload) 
       
+      // TODO: 4. ^^^
       // this.props.submitBodyData(slider_type, p)
 
-      // TODO: 3. 
       this.setState({
         styleProp: "slide",
       })
@@ -94,8 +96,8 @@ class Body extends Component {
 
     render() {
 
-        const { calories_data, bw_data } = this.state.data;
-        const data = this.state.graph_data == "BW" ? bw_data : calories_data;
+        // const { calories_data, bw_data } = this.state.data;
+        const data = this.state.graph_data == "BW" ? this.state.data.bw_data : this.state.data.calories_data;
         const top_number = this.state.graph_data == "BW" ? this.state.bw : this.state.bmr;
 
         return (
