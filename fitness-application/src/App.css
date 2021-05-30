@@ -582,7 +582,7 @@ h2 {
 /**======================
  *   FORM 
  *========================**/
-input[type=text] {
+input[type=text], input[type=number] {
   border: none;
   height: 4vh;
   font-weight: bold;
@@ -598,7 +598,7 @@ input[type=text] {
   border-radius: 0;
 }
 
-input[type=text]:focus {
+input[type=number]:focus , input[type=text]:focus {
   border: none;
   border-bottom: 2px solid red;
   background-color: rgb(146, 146, 146);

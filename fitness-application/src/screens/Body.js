@@ -2,8 +2,9 @@ import HotKeys from '../components/dash/HotKeys'
 import Graph from '../components/graph/Graph';
 import Slider from '../components/slider/Slider';
 
-import React, { Component} from 'react'
+import React, { Component} from 'react';
 import { connect } from 'react-redux';
+import { addBWAction } from '../store/actions/bodyAction';
 
 // * For HotKey & Action
 const hotkeys = [
@@ -91,6 +92,7 @@ class Body extends Component {
       
       // TODO: 4. ^^^
       // this.props.submitBodyData(slider_type, p)
+      
 
       this.setState({
         styleProp: "slide",
@@ -165,5 +167,13 @@ const mapStateToProps = (state) => {
   return { body: state.body.graph }
 }
 
+// * Mapping Dispatched Actions  to Props
+const mapDispatchToState = (dispatch) => {
+    return { 
+        add_bw: (bw) => dispatch(addBWAction(bw)),
+    }
+  }
+  
+
 // TODO: 4. Compose lisenter & Add Dispatch/Store to props
-export default connect(mapStateToProps)(Body);
+export default connect(mapStateToProps, mapDispatchToState)(Body);

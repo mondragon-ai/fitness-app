@@ -49,7 +49,7 @@ class NewBody extends Component {
     
                 <div className="new-pr">
                     <div className="pr-item">
-                        <input type="text" placeholder="165" onChange={this.handleChange} value={this.state.value} />
+                        <input data-validation="number" type="number" placeholder="165" onChange={this.handleChange} value={this.state.value} />
                     </div>
     
                     <div className="pr-item ">
