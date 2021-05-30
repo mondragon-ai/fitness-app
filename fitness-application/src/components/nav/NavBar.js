@@ -1,18 +1,51 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStopwatch20, faUserCircle, faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
+import { Component } from "react";
+import { connect } from 'react-redux'
 
-const NavBar = () => {
+/**
+ * * NavBar Component Based don URL Param
+ * TODO: Create Toggle Param to list links dynamically
+ * TODO: Add listenor to Firebase to change url_param
+ * @param { auth } = props
+ */
+class NavBar extends Component{
 
-    const right_tab = "PROFILE" != "PROFILE" ? <Link to="/signin"><h1><FontAwesomeIcon className="icon" icon={faSignOutAlt} /></h1></Link> : <Link to="/profile"><h1><FontAwesomeIcon className="icon" icon={faUserCircle} /></h1></Link>;
-    return (
-        <nav className="navbar">
-            <Link to="/"><h1><FontAwesomeIcon className="icon" icon={faStopwatch20} /></h1></Link>
-            {right_tab}
-            <Link to="/signin"><h1><FontAwesomeIcon className="icon" icon={faSignOutAlt} /></h1></Link> 
-        </nav>
-    )
+    constructor(props) {
+        super()
+
+        this.state = {
+            id: props.auth
+        }
+    }
+
+    render() {
+        
+        console.log("NAVBAR", this.state.id)
+        const right_tab = this.state.id == "/profile" ? 
+            <Link to="/signin">
+                <h1><FontAwesomeIcon className="icon" icon={faSignOutAlt} /></h1>
+            </Link> : 
+            <Link to="/profile">
+                <h1><FontAwesomeIcon className="icon" icon={faUserCircle} /></h1>
+            </Link>;
+        
+        return (
+            <nav className="navbar">
+                <Link to="/">
+                    <h1><FontAwesomeIcon className="icon" icon={faStopwatch20} /></h1>
+                </Link>
+                {right_tab}
+            </nav>
+        )
+    }
 }
 
-export default NavBar; 
+const mapStateToProps = (state) => {
+    return {auth: state.auth.url_param}
+}
+
+// TODO: 4. 
+export default connect(mapStateToProps)(NavBar); 

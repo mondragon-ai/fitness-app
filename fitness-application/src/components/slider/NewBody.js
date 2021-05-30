@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
-
+/**
+ * * Submut new BW to DB
+ * TODO: Connect Dispatch to the props
+ * ? Add Listener? 
+ */
 class NewBody extends Component {
 
     constructor(props) 
@@ -13,7 +18,6 @@ class NewBody extends Component {
         // Bind Helper Fns
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
     }
     
     /**
@@ -37,7 +41,7 @@ class NewBody extends Component {
 
     render() {
 
-        const {prev_bw, target_bw} = this.props.values
+        const {current_bw, target_bw} = this.props.body
 
         return (
 
@@ -49,7 +53,7 @@ class NewBody extends Component {
                     </div>
     
                     <div className="pr-item ">
-                        <h1>{prev_bw}<p>Lbs</p></h1>
+                        <h1>{current_bw}<p>Lbs</p></h1>
                         <p>Previous BW</p>
                     </div>
                     
@@ -69,5 +73,7 @@ class NewBody extends Component {
     }
     
 }
-
-export default NewBody
+const mapStateToProps = (state) => {
+    return { body: state.body }
+}
+export default connect(mapStateToProps)(NewBody)

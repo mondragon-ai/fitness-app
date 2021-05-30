@@ -5,13 +5,13 @@ import Slider from '../components/slider/Slider';
 import React, { Component} from 'react'
 import { connect } from 'react-redux';
 
-// For HotKey & Action
+// * For HotKey & Action
 const hotkeys = [
     {id: 1, title: "Daily Calories", emoji: "🍱", slider_name: "CALS"}, 
     {id: 2, title: "Body Weight", emoji: "🏋🏻‍♀️", slider_name: "BODY"},
 ];
 
-// Dynamic str label based on data
+// * Dynamic str label based on data
 const bw_header = (top_number) => {return (<div className="graph-header-text"><h1 className="">{top_number}</h1><span>lbs</span></div> ) } 
 const cals_header = (top_number) => {return (<div className="graph-header-text"><h1 className="">{top_number}</h1><span>kcal</span></div> ) } 
 
@@ -45,7 +45,7 @@ class Body extends Component {
 
         this.state = {
           styleProp: "slide",
-          slider_name: "BODY",
+          slider_name: "",
           graph_data: "BW",
           bw: prev_bw, 
           bw_change: change, 
@@ -61,6 +61,7 @@ class Body extends Component {
     }
     
 
+    // * Toggle Graph Data based on selected data
     graphToggle(text) {
 
         if (this.state.graph_data != text) {
@@ -71,6 +72,7 @@ class Body extends Component {
 
     }
 
+    // * Open Slide & Change syle: slide-open
     handleOpen(slider_type) 
     { 
       this.setState({
@@ -79,6 +81,7 @@ class Body extends Component {
       })
     }
 
+    // * Open Slide & Change syle: slide & Handle Push to DB
     handleClose(slider_type, payload) 
     { 
       console.log("Handled In parent: ", slider_type, " - PayLoad:  ", payload)
@@ -91,14 +94,16 @@ class Body extends Component {
 
       this.setState({
         styleProp: "slide",
+        slider_name: ""
       })
     }
 
     render() {
 
-        // const { calories_data, bw_data } = this.state.data;
+        // * Display Daya & label based on selected data
         const data = this.state.graph_data == "BW" ? this.state.data.bw_data : this.state.data.calories_data;
         const top_number = this.state.graph_data == "BW" ? this.state.bw : this.state.bmr;
+        // const { calories_data, bw_data } = this.state.data;
 
         return (
             <div className="body-section">
@@ -155,8 +160,10 @@ class Body extends Component {
     }
 }
 
+// * Mapping Boday Data to Props
 const mapStateToProps = (state) => {
   return { body: state.body.graph }
 }
 
+// TODO: 4. Compose lisenter & Add Dispatch/Store to props
 export default connect(mapStateToProps)(Body);

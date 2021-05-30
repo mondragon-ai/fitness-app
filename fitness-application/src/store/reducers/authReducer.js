@@ -9,7 +9,7 @@ const initState = {
     goals_left: 3,
     streak: 7,
     date: 120,
-    url_param: 'dash'
+    url_param: '/profile'
 }
 
 

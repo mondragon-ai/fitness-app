@@ -1,36 +1,46 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
+/**
+ * * Submut new Daily Cals to DB
+ * TODO: Connect Dispatch to the props
+ * ? Add Listener? 
+ */
+class NewCals extends Component {
 
-class NewBody extends Component {
+    constructor(props)
+    {
+        super();
 
-    constructor(props) {
-        super(props);
-
+        // State
         this.state = {value: ''};
-    
+
+        // Bind Helper Fns
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         
-      }
-    
-      handleChange(event) 
-      {
-        this.setState({value: event.target.value});
-      }
-    
-      handleSubmit(event) 
-      {
-        // alert('A name was submitted: ' + this.state.value);
-        // Call Action & Pass State 
-        event.preventDefault();
+    }
 
+    /**
+     * Handle Change
+     * @param {*} event 
+     */
+    handleChange(event) { this.setState({value: event.target.value}); }
+    
+    /**
+     * Pass Data to Parent for data check & 
+     * ? Data Check here? 
+     * @param {*} event 
+     */
+    handleSubmit(event) 
+    {
+        event.preventDefault();
         this.props.close(this.state.value)
     }
 
     render() 
     {
-
-        const {target_BMR, prev_cal} = this.props.values
+        const {target_BMR, prev_cal} = this.props.body
 
         return (
 
@@ -63,4 +73,8 @@ class NewBody extends Component {
     
 }
 
-export default NewBody
+const mapStateToProps = (state) => {
+    return { body: state.body }
+}
+
+export default connect(mapStateToProps)(NewCals)

@@ -22,10 +22,6 @@ import NewCals from './NewCals'
         this.state = {
 
             id: 2,
-            prev_bw: 161,
-            target_bw: 162,
-            prev_cal: 2161,
-            target_BMR: 1682,
             d_bw_pr: 640,
             d_ppr: 600,
             b_bw_pr: 350,
