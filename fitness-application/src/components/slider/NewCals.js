@@ -7,6 +7,7 @@ import { addCalsAction } from '../../store/actions/bodyAction'
  * * Submit new Cals to DB
  * TODO: 1. Connect Dispatch to the props
  * TODO: 2. Data Check before submitting
+ * TODO: When Add Increase xp & add/start streak
  * ? Add Listener? 
  */
 class NewCals extends Component {

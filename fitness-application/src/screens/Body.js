@@ -17,10 +17,10 @@ const cals_header = (top_number) => {return (<div className="graph-header-text">
 
 /**
  * * Graph of BW/Cals Over Time & Push New Data 
- * TODO: 1. Create BW Change Helper Fn
- * TODO: 2. Create BMR Helper Fn
- * TODO: 3. Create Data Check Helper Fn
+ * TODO: 1. Create BW Change Helper Fn & Action/Reducer
+ * TODO: 2. Create BMR Helper Fn & Action/Reducer
  * TODO: 4. Link Dispatch to Prop & Push Data on Submit
+ * TODO: 5. P
  * TODO: 5. Clean
  * @params {graph, body_metrics} = props.body
  */
@@ -51,15 +51,19 @@ class Body extends Component {
           bw_change: change, 
           bmr: prev_cal,
           calories: prev_cal,
-          data: props.body
+          data: props.body,
+          color: ''
       }
 
       this.graphToggle = this.graphToggle.bind(this);
       this.handleOpen = this.handleOpen.bind(this);
       this.handleClose = this.handleClose.bind(this);
-
+      this.changeBW = this.changeBW.bind(this);
     }
     
+    componentDidMount() {
+        this.changeBW(this.props.body.bw_data[0].data )
+    }
 
     // * Toggle Graph Data based on selected data
     graphToggle(text) {
@@ -98,6 +102,52 @@ class Body extends Component {
         })
     }
 
+    /**
+     * * Take in BW Array & Calculate BW Change 
+     * TODO: Clean up
+     * ? Stress data array with all data types 
+     * @param { graph.bw_data[0].data } = curr_bw 
+     * @return Body Weight Difference: int
+     */
+    changeBW(bw_arr) 
+    {
+        let week01 = []
+        if (bw_arr.length - 14 > 0) {
+            week01 = bw_arr.slice(bw_arr.length - 14, bw_arr.length - 8);
+        } else {
+            week01 = bw_arr.slice(0, bw_arr.length - 8);
+        }
+        const week02 = bw_arr.slice(bw_arr.length - 7);
+
+        let week01_sum = 0;
+        week01.forEach((obj) => {
+            week01_sum+= obj.y
+        })
+
+        console.log("\n \n ")
+        let week02_sum = 0;
+        week02.forEach((obj) => {
+            week02_sum+= obj.y
+        })
+
+        let week01_avg = week01_sum/week01.length;
+        let week02_avg = week02_sum/week02.length;
+        let change = week02_avg - week01_avg;
+
+
+        if (change > 0){
+            this.setState({
+                bw_change: change.toFixed(1),
+                color: 'var(--color-third)'
+            }) 
+        } else {
+            this.setState({
+                bw_change: change.toFixed(1),
+                color: 'var(--color-accent)'
+            }) 
+        }
+    }
+
     render() {
 
         // * Display Daya & label based on selected data
@@ -129,8 +179,8 @@ class Body extends Component {
 
                         {/* Weight Change */}
                         <div className="streak" onClick={() => this.graphToggle("BW")}>
-                            <div className="stats">
-                                <h1>{this.state.bw_change}  </h1>
+                            <div className="stats" >
+                                <h1 style={{color: `${this.state.color}`}}>{this.state.bw_change}  </h1>
                                 <span>  lb</span>
                             </div>
                             <h1>Weight Change</h1>

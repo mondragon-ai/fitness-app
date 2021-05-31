@@ -11,7 +11,8 @@ import { getFirestore } from 'redux-firestore'
 import { getFirebase } from 'react-redux-firebase'
 
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, 
+  applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store} >
