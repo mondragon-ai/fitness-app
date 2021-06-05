@@ -17,21 +17,25 @@ class NavBar extends Component{
         super()
 
         this.state = {
-            id: props.auth
+            id: ""
         }
     }
 
-    componentDidMount() {
-        this.setState({
-            id: this.props.auth
-        })
-        console.log("NAVBAR", this.state.id)
-    }
+    // componentDidUpdate(prevProps) {
+        
+    //     if (prevProps.auth !== this.props.auth) {
+    //         this.setState({
+    //             id: this.props.auth
+    //         })
+    //     }
+    //     console.log("NAVBAR: ", this.props.auth)
+    //     console.log("NAVBAR: ", this.state.id)
+    // }
 
     render() {
         
-        console.log("NAVBAR", this.state.id)
-        const right_tab = this.state.id == "/profile" ? 
+        // console.log("NAVBAR", this.state.id)
+        const right_tab = this.props.auth == "/profile" ? 
             <Link to="/signin">
                 <h1><FontAwesomeIcon className="icon" icon={faSignOutAlt} /></h1>
             </Link> : 

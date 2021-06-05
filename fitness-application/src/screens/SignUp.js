@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import { signUp } from '../store/actions/authActions'
 import { connect } from 'react-redux'
+import { changeUrl } from '../store/actions/authActions'
 
 class SignUp extends Component {
     constructor(props) {
@@ -16,6 +17,11 @@ class SignUp extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        this.props.changeParam("/signup")
+        // console.log(this.props.user_info.url_param)
+    }
+
     handleChange(e) {
         this.setState({
             [e.target.id]: e.target.value
@@ -27,7 +33,6 @@ class SignUp extends Component {
         console.log(this.state)
         this.props.signUp(this.state);
     }
-    
 
     render() {
         return (
@@ -46,6 +51,11 @@ class SignUp extends Component {
             </div>
         )
     }
+
+    componentWillUnmount() {
+        this.props.changeParam("/")
+        // console.log(this.props.user_info.url_param)
+    }
 }
 
 const mapStateToProps = (state) => {
@@ -55,7 +65,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToprops = (dispatch) => {
 
     return {
-        signUp: (credentials) => dispatch(signUp(credentials)) 
+        signUp: (credentials) => dispatch(signUp(credentials)),
+        changeParam: (url_param) => dispatch(changeUrl(url_param))
     }
 }
 

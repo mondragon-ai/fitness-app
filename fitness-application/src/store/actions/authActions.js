@@ -30,6 +30,10 @@ export const signUp = (credentials) =>
 
 export const changeUrl = (url_param) => {
 
-    return {type: "URL_CHANGED", payload: url_param}
+    return (dispatch, getState) => {
+
+        dispatch({type: "URL_CHANGED", payload: url_param})
+
+    }
 
 }

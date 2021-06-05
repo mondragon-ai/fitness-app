@@ -9,15 +9,16 @@ import Feed from './screens/Feed'
 import SignIn from './screens/SignIn'
 import SignUp from './screens/SignUp'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
-function App() {
+function App(props) {
 
   return (
 
     <Router>
       <div className="app">
-        <NavBar />
+        { props.auth == "/signup" ||  props.auth == "/signin" ? null : <NavBar /> }
         <div className="content-container">
           <Switch >
             <Route exact path="/"> <Dashboard /> </Route>
@@ -29,11 +30,15 @@ function App() {
             <Route path="/signup"> <SignUp /> </Route>
           </Switch>
         </div>
-        <ToolBar />
+        { props.auth == "/signup" ||  props.auth == "/signin" ? null : <ToolBar /> }
       </div>
     </Router>
   );
 
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { auth: state.auth.url_param}
+}
+
+export default connect(mapStateToProps)(App);

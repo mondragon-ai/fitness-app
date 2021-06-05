@@ -23,7 +23,8 @@ const quickStats = [
 class Profile extends Component {
 
     componentDidMount() {
-        this.props.changeURL("/profile")
+        this.props.changeParam("/profile")
+        console.log(this.props.user_info.url_param)
     }
 
     render() {
@@ -39,6 +40,11 @@ class Profile extends Component {
         )
 
     }
+
+    componentWillUnmount() {
+        this.props.changeParam("/")
+        console.log(this.props.user_info.url_param)
+    }
     
 }
 
@@ -48,7 +54,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToprops = (dispatch) => {
     return {
-        changeURL: (url_param) => dispatch(changeUrl(url_param))
+        changeParam: (url_param) => dispatch(changeUrl(url_param))
     }
 }
 

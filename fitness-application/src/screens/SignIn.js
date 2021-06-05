@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import { changeUrl } from '../store/actions/authActions'
 
 class SignIn extends Component {
     constructor(props) {
@@ -12,6 +14,11 @@ class SignIn extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.changeParam("/signup")
+        // console.log(this.props.user_info.url_param)
     }
 
     handleChange(e) {
@@ -43,6 +50,18 @@ class SignIn extends Component {
             </div>
         )
     }
+
+    componentWillUnmount() {
+        this.props.changeParam("/")
+        // console.log(this.props.user_info.url_param)
+    }
 }
 
-export default SignIn
+const mapDispatchToprops = (dispatch) => {
+
+    return {
+        changeParam: (url_param) => dispatch(changeUrl(url_param))
+    }
+}
+
+export default connect(null, mapDispatchToprops)(SignIn)
