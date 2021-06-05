@@ -12,7 +12,6 @@ const initState = {
     url_param: '/'
 }
 
-
 const authReducer = (state = initState, action ) => {
 
     switch (action.type) {

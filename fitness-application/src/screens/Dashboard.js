@@ -4,7 +4,6 @@ import HotKeys from '../components/dash/HotKeys';
 import Calander from '../components/dash/Calander';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import React from 'react'
 
 const Dashboard = (props) => {
@@ -25,9 +24,7 @@ const Dashboard = (props) => {
     { 
         console.log("Handled In parent: ", title)
     }
-
-    console.log(props.user_info)
-
+    
     return (
         <div>
             <UserStats user_info={props.user_info} value={quickStats} /> 
@@ -52,7 +49,7 @@ const Dashboard = (props) => {
 }
 
 const maptStateToProps = (state) => {
-    return { user_info: state}
+    return { user_info: state.auth}
 }
 
 export default connect(maptStateToProps)(Dashboard)

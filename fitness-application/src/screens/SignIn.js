@@ -18,7 +18,6 @@ class SignIn extends Component {
 
     componentDidMount() {
         this.props.changeParam("/signup")
-        // console.log(this.props.user_info.url_param)
     }
 
     handleChange(e) {
@@ -53,7 +52,6 @@ class SignIn extends Component {
 
     componentWillUnmount() {
         this.props.changeParam("/")
-        // console.log(this.props.user_info.url_param)
     }
 }
 

@@ -14,15 +14,9 @@ import React from 'react'
  */
 
 const UserStats = ({ value, user_info}) => {
-
-    const state = {
-        url_param: 'dash'
-    }
-
+    
     // const { value } = props
     const { level, name, progress, usr_profile, goals_left, streak, date } = user_info
-
-    console.log(value)
 
     return (
         <div className="quick-stats" > 

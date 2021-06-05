@@ -28,24 +28,18 @@ class Profile extends Component {
     }
 
     render() {
-
         return (
             <div>
-    
                 <UserStats user_info={this.props.user_info} value={quickStats} /> 
-    
                 <UserFeed />
-                
             </div>
         )
-
     }
 
     componentWillUnmount() {
         this.props.changeParam("/")
         console.log(this.props.user_info.url_param)
     }
-    
 }
 
 const mapStateToProps = (state) => {

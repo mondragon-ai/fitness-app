@@ -18,7 +18,7 @@ function App(props) {
 
     <Router>
       <div className="app">
-        { props.auth == "/signup" ||  props.auth == "/signin" ? null : <NavBar /> }
+        { props.auth === "/signup" ||  props.auth === "/signin" ? null : <NavBar /> }
         <div className="content-container">
           <Switch >
             <Route exact path="/"> <Dashboard /> </Route>
@@ -30,7 +30,7 @@ function App(props) {
             <Route path="/signup"> <SignUp /> </Route>
           </Switch>
         </div>
-        { props.auth == "/signup" ||  props.auth == "/signin" ? null : <ToolBar /> }
+        { props.auth === "/signup" ||  props.auth === "/signin" ? null : <ToolBar /> }
       </div>
     </Router>
   );

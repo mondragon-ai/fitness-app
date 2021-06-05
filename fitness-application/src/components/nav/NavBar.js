@@ -20,21 +20,8 @@ class NavBar extends Component{
             id: ""
         }
     }
-
-    // componentDidUpdate(prevProps) {
-        
-    //     if (prevProps.auth !== this.props.auth) {
-    //         this.setState({
-    //             id: this.props.auth
-    //         })
-    //     }
-    //     console.log("NAVBAR: ", this.props.auth)
-    //     console.log("NAVBAR: ", this.state.id)
-    // }
-
     render() {
         
-        // console.log("NAVBAR", this.state.id)
         const right_tab = this.props.auth == "/profile" ? 
             <Link to="/signin">
                 <h1><FontAwesomeIcon className="icon" icon={faSignOutAlt} /></h1>

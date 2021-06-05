@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar';
-import TileContent from 'react-calendar'
+// import TileContent from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 
 const datesToAddContentTo = [new Date(), new Date()];
