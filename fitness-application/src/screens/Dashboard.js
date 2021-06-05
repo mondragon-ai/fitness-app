@@ -26,6 +26,8 @@ const Dashboard = (props) => {
         console.log("Handled In parent: ", title)
     }
 
+    console.log(props.user_info)
+
     return (
         <div>
             <UserStats user_info={props.user_info} value={quickStats} /> 
@@ -50,7 +52,7 @@ const Dashboard = (props) => {
 }
 
 const maptStateToProps = (state) => {
-    return { user_info: state.auth}
+    return { user_info: state}
 }
 
 export default connect(maptStateToProps)(Dashboard)

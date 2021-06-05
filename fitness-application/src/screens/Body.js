@@ -73,7 +73,6 @@ class Body extends Component {
                 graph_data: text
             })
         } 
-
     }
 
     // * Open Slide & Change syle: slide-open
@@ -106,6 +105,7 @@ class Body extends Component {
      * * Take in BW Array & Calculate BW Change 
      * TODO: Clean up
      * ? Stress data array with all data types 
+     * ? Create as interface to import?
      * @param { graph.bw_data[0].data } = curr_bw 
      * @return Body Weight Difference: int
      */

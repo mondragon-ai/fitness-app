@@ -179,6 +179,14 @@ const initState = {
     }
 }
 
+/**
+ * *Add New BW & Daily Cals. 
+ * TODO: modify the graph
+ * TODO: MOdify BMR Calculation 
+ * @param {*} state 
+ * @param {*} action 
+ * @returns 
+ */
 const bodyReducer = ( state = initState, action) => {
 
     switch (action.type) {

@@ -21,6 +21,13 @@ class NavBar extends Component{
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            id: this.props.auth
+        })
+        console.log("NAVBAR", this.state.id)
+    }
+
     render() {
         
         console.log("NAVBAR", this.state.id)

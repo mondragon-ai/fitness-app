@@ -9,12 +9,34 @@ const initState = {
     goals_left: 3,
     streak: 7,
     date: 120,
-    url_param: '/profile'
+    url_param: '/'
 }
 
 
 const authReducer = (state = initState, action ) => {
-    return state;
+
+    switch (action.type) {
+        case 'SINGUP_SUCCESSFUL': {
+            console.log("SINGUP_SUCCESSFUL")
+            return state;
+        }
+    
+        case 'SINGUP_ERROR': {
+            console.log("SINGUP_ERROR: ", action.payload)
+            return state;
+        }
+
+        case 'URL_CHANGED': {
+            console.log("URL_CHANGED: ", action.payload)
+            return {
+                ...state,
+                url_param: action.payload
+            };
+        }
+            
+        default:
+            return state;
+    }
 }
 
 export default authReducer;
