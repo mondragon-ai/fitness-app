@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
-import { changeUrl } from '../store/actions/authActions'
+import { changeUrl, signIn } from '../store/actions/authActions'
 import { Redirect } from 'react-router-dom';
 
 class SignIn extends Component {
@@ -9,7 +9,7 @@ class SignIn extends Component {
         super(props)
     
         this.state = {
-             username: "",
+             email: "",
              password: ""
         }
 
@@ -30,6 +30,7 @@ class SignIn extends Component {
     handleSubmit(e) {
         e.preventDefault()
         console.log(this.state)
+        this.props.logIn(this.state)
     }
     
 
@@ -41,7 +42,7 @@ class SignIn extends Component {
                 <div className="signin-card">
                     <div className="logo"></div>
                     <form onSubmit={this.handleSubmit} action="">
-                        <input id="username" type="text" placeholder="User Name" value={this.state.username} onChange={this.handleChange}/>
+                        <input id="email" type="text" placeholder="User Name" value={this.state.username} onChange={this.handleChange}/>
                         <input id="password" type="text" placeholder="Password" value={this.state.Password} onChange={this.handleChange} />
                         <span>No Account? <Link className="signup-link" to="/signup">Create Here</Link></span>
                         <input value="Sign In" type="submit" />
@@ -69,7 +70,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToprops = (dispatch) => {
 
     return {
-        changeParam: (url_param) => dispatch(changeUrl(url_param))
+        changeParam: (url_param) => dispatch(changeUrl(url_param)),
+        logIn: (credentials) => dispatch(signIn(credentials))
     }
 }
 

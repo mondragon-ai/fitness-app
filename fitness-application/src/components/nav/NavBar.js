@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStopwatch20, faUserCircle, faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 import { Component } from "react";
 import { connect } from 'react-redux'
+import { signOut } from '../../store/actions/authActions'
 
 /**
  * * NavBar Component Based don URL Param
@@ -23,9 +24,9 @@ class NavBar extends Component{
     render() {
         
         const right_tab = this.props.auth == "/profile" ? 
-            <Link to="/signin">
+            <a onClick={() => this.props.logOut()}>
                 <h1><FontAwesomeIcon className="icon" icon={faSignOutAlt} /></h1>
-            </Link> : 
+            </a> : 
             <Link to="/profile">
                 <h1><FontAwesomeIcon className="icon" icon={faUserCircle} /></h1>
             </Link>;
@@ -45,5 +46,11 @@ const mapStateToProps = (state) => {
     return {auth: state.auth.url_param}
 }
 
+const mapDispatchToprops = (dispatch) => {
+    return {
+        logOut: () => dispatch(signOut())
+    }
+}
+
 // TODO: 4. 
-export default connect(mapStateToProps)(NavBar); 
+export default connect(mapStateToProps, mapDispatchToprops)(NavBar); 

@@ -1,11 +1,10 @@
 export const signUp = (credentials) => 
 {
-    return (dispatch, getState ) => {
+    return (dispatch, getState, {getFirestore, getFirebase}) => {
 
-         //{getFirestore, getFirebase}
-        // const firestore = getFirestore();
-        // const firebase = getFirebase();
+        const firebase = getFirebase();
 
+        console.log(firebase)
         dispatch({type: "SINGUP_SUCCESSFUL"})
 
 
@@ -27,6 +26,37 @@ export const signUp = (credentials) =>
     }
 
 } 
+
+export const signIn = (credentials) => {
+    return (dispatch, getState, {getFirebase}) => {
+        
+        const firebase = getFirebase();
+        firebase.auth()
+        .signInWithEmailAndPassword(
+            credentials.email,
+            credentials.password
+        ).then(() => {
+            dispatch({type: "SIGNIN_SUCCESSFUL"})
+        }).catch((err) => {
+            dispatch({type: "SIGNIN_ERROR", payload: err})
+        })
+
+    }
+}
+
+export const signOut = () => {
+    return (dispatch, getState, {getFirebase}) => {
+
+        const firebase = getFirebase();
+        firebase.auth()
+        .signOut()
+        .then(() => {
+            dispatch({type: "SIGNOUT_SUCCESSFULL"})
+        }).catch((err) => {
+            dispatch({type: "SIGNOUT_SUCCESSFULL", payload: err})
+        })
+    }
+}
 
 export const changeUrl = (url_param) => {
 

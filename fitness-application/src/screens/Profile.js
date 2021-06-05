@@ -4,7 +4,7 @@ import HotKeys from '../components/dash/HotKeys';
 import UserFeed from '../components/feed/UserFeed';
 import { connect } from 'react-redux';
 import { Component } from 'react';
-import { changeUrl } from '../store/actions/authActions'
+import { changeUrl, signOut } from '../store/actions/authActions'
 import { Redirect } from 'react-router-dom';
 
 
@@ -54,7 +54,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToprops = (dispatch) => {
     return {
-        changeParam: (url_param) => dispatch(changeUrl(url_param))
+        changeParam: (url_param) => dispatch(changeUrl(url_param)),
     }
 }
 
