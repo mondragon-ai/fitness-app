@@ -3,6 +3,7 @@ import Graph from '../components/graph/Graph';
 import Calendar from '../components/dash/Calander';
 import Slider from '../components/slider/Slider';
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom';
 
 import React, { Component} from 'react'
 
@@ -84,6 +85,7 @@ class Workout extends Component {
         const data = this.state.graph_data == "TOTAL" ? total_list : squat_list;
 
         console.log("Slider-Style: ", this.state.styleProp)
+        if (!this.props.firebase.uid) return <Redirect to="/signin" />
 
         return (
 
@@ -165,7 +167,8 @@ class Workout extends Component {
 const mapStateToProps = (state) => {
   return { 
     graph: state.workout.graph,
-    lifts: state.workout
+    lifts: state.workout,
+    firebase: state.firebase.auth
   }
 }
 

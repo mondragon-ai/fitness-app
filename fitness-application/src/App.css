@@ -957,5 +957,5 @@ input[type=button], input[type=submit], input[type=reset] {
   color: var(--color-forth);
   font-size: 0.7em;
   position: absolute;
-  bottom: 0vh;
+  bottom: 5vh;
 }

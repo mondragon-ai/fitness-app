@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { changeUrl } from '../store/actions/authActions'
+import { Redirect } from 'react-router-dom';
 
 class SignIn extends Component {
     constructor(props) {
@@ -33,6 +34,7 @@ class SignIn extends Component {
     
 
     render() {
+        if (this.props.firebase.uid) return <Redirect to="/" />
         return (
             <div className="auth-screen">
 
@@ -55,6 +57,15 @@ class SignIn extends Component {
     }
 }
 
+
+
+const mapStateToProps = (state) => {
+    return { 
+        firebase: state.firebase.auth
+    }
+}
+
+
 const mapDispatchToprops = (dispatch) => {
 
     return {
@@ -62,4 +73,4 @@ const mapDispatchToprops = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToprops)(SignIn)
+export default connect(mapStateToProps, mapDispatchToprops)(SignIn)

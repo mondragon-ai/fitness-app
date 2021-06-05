@@ -8,9 +8,8 @@ import Profile from './screens/Profile'
 import Feed from './screens/Feed'
 import SignIn from './screens/SignIn'
 import SignUp from './screens/SignUp'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 
 function App(props) {
 

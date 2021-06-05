@@ -5,6 +5,7 @@ import UserFeed from '../components/feed/UserFeed';
 import { connect } from 'react-redux';
 import { Component } from 'react';
 import { changeUrl } from '../store/actions/authActions'
+import { Redirect } from 'react-router-dom';
 
 
 const hotkeys = [
@@ -28,6 +29,8 @@ class Profile extends Component {
     }
 
     render() {
+
+        if (!this.props.firebase.uid) return <Redirect to="/signin" />
         return (
             <div>
                 <UserStats user_info={this.props.user_info} value={quickStats} /> 
@@ -43,7 +46,10 @@ class Profile extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { user_info: state.auth}
+    return { 
+        user_info: state.auth,
+        firebase: state.firebase.auth
+    }
 }
 
 const mapDispatchToprops = (dispatch) => {

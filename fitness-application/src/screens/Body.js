@@ -4,6 +4,7 @@ import Slider from '../components/slider/Slider';
 
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 // * For HotKey & Action
 const hotkeys = [
@@ -155,6 +156,8 @@ class Body extends Component {
         const top_number = this.state.graph_data == "BW" ? this.state.bw : this.state.bmr;
         // const { calories_data, bw_data } = this.state.data;
 
+        if (!this.props.firebase.uid) return <Redirect to="/signin" />
+
         return (
             <div className="body-section">
 
@@ -212,7 +215,10 @@ class Body extends Component {
 
 // * Mapping Boday Data to Props
 const mapStateToProps = (state) => {
-  return { body: state.body.graph }
+    return { 
+        body: state.body.graph,
+        firebase: state.firebase.auth
+    }
 }
 
 // TODO: 4. Compose lisenter & Add Dispatch/Store to props

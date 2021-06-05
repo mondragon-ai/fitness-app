@@ -2,7 +2,7 @@
 import UserStats from '../components/dash/UserStats';
 import HotKeys from '../components/dash/HotKeys';
 import Calander from '../components/dash/Calander';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import React from 'react'
 
@@ -24,32 +24,40 @@ const Dashboard = (props) => {
     { 
         console.log("Handled In parent: ", title)
     }
+
+    if (!props.firebase.uid) {
+        return <Redirect to="/signin" />
+    } else {
+        return (
+            <div>
+                <UserStats user_info={props.user_info} value={quickStats} /> 
     
-    return (
-        <div>
-            <UserStats user_info={props.user_info} value={quickStats} /> 
-
-            <div className="grid-container">
-                {hotkeys.map( (button) => {
-                    return (
-                    <Link to={button.to} >
-                        <HotKeys handleOpen={() => handleOpen()} key={button.id} value={button} />
-                    </Link>
-                    );
-                })}
+                <div className="grid-container">
+                    {hotkeys.map( (button) => {
+                        return (
+                        <Link to={button.to} >
+                            <HotKeys handleOpen={() => handleOpen()} key={button.id} value={button} />
+                        </Link>
+                        );
+                    })}
+                </div>
+    
+                {/* <div className="calander-container">
+                    <Calander />
+                </div> */}
+                
+                
             </div>
-
-            {/* <div className="calander-container">
-                <Calander />
-            </div> */}
-            
-            
-        </div>
-    )
+        )
+    }
 }
 
 const maptStateToProps = (state) => {
-    return { user_info: state.auth}
+    console.log(state)
+    return { 
+        user_info: state.auth,
+        firebase: state.firebase.auth
+    }
 }
 
 export default connect(maptStateToProps)(Dashboard)

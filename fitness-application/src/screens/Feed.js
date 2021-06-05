@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Post from '../components/feed/Post'
-
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 class Feed extends Component {
     
     constructor(props) {
@@ -26,6 +27,9 @@ class Feed extends Component {
     }
     
     render() {
+
+        if (!this.props.firebase.uid) return <Redirect to="/signin" />
+        
         return (
             <div className="feed">
                 <Post value={this.state} />
@@ -36,4 +40,10 @@ class Feed extends Component {
     }
 }
 
-export default Feed
+const mapStateToProps = (state) => {
+    return { 
+      firebase: state.firebase.auth
+    }
+  }
+
+export default connect(mapStateToProps)(Feed)
