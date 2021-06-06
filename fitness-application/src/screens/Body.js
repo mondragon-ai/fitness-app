@@ -5,6 +5,7 @@ import Slider from '../components/slider/Slider';
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { compose } from 'redux';
 
 // * For HotKey & Action
 const hotkeys = [
@@ -222,4 +223,7 @@ const mapStateToProps = (state) => {
 }
 
 // TODO: 4. Compose lisenter & Add Dispatch/Store to props
-export default connect(mapStateToProps)(Body);
+export default compose(
+    connect(mapStateToProps),
+    
+)(Body);

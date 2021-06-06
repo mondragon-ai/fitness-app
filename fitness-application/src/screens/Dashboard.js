@@ -63,6 +63,8 @@ const maptStateToProps = (state) => {
 }
 
 export default compose(
-    firestoreConnect(() => ['leaderboard']),
+    firestoreConnect((props) => [{
+        collection: 'users', doc: props.uid
+    }]),
     connect(maptStateToProps)
 )(Dashboard)
