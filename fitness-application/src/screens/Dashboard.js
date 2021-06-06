@@ -5,6 +5,8 @@ import Calander from '../components/dash/Calander';
 import {Link, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import React from 'react'
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase'
 
 const Dashboard = (props) => {
     const hotkeys = [
@@ -60,4 +62,7 @@ const maptStateToProps = (state) => {
     }
 }
 
-export default connect(maptStateToProps)(Dashboard)
+export default compose(
+    firestoreConnect(() => ['leaderboard']),
+    connect(maptStateToProps)
+)(Dashboard)

@@ -7,11 +7,11 @@ import bodyReducer from './bodyReducer';
 
 
 const rootReducer = combineReducers({
+    firestore: firestoreReducer,
     auth: authReducer,
     workout: workoutReducer,
     body: bodyReducer,
     firebase: firebaseReducer,
-    firestore: firestoreReducer 
  })
 
  export default rootReducer;

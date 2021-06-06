@@ -42,8 +42,8 @@ class SignIn extends Component {
                 <div className="signin-card">
                     <div className="logo"></div>
                     <form onSubmit={this.handleSubmit} action="">
-                        <input id="email" type="text" placeholder="User Name" value={this.state.username} onChange={this.handleChange}/>
-                        <input id="password" type="text" placeholder="Password" value={this.state.Password} onChange={this.handleChange} />
+                        <input name="email" id="email" type="text" placeholder="User Name" value={this.state.username} onChange={this.handleChange}/>
+                        <input name="password" id="password" type="text" placeholder="Password" value={this.state.Password} onChange={this.handleChange} />
                         <span>No Account? <Link className="signup-link" to="/signup">Create Here</Link></span>
                         <input value="Sign In" type="submit" />
                     </form>

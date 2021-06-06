@@ -15,8 +15,8 @@ const initState = {
 const authReducer = (state = initState, action ) => {
 
     switch (action.type) {
-        case 'SINGUP_SUCCESSFUL': {
-            console.log("SINGUP_SUCCESSFUL")
+        case 'SINGUP_SUCCESSFULL': {
+            console.log("SINGUP_SUCCESSFULL")
             return state;
         }
     

@@ -3,26 +3,24 @@ export const signUp = (credentials) =>
     return (dispatch, getState, {getFirestore, getFirebase}) => {
 
         const firebase = getFirebase();
+        const firestore = getFirestore();
 
-        console.log(firebase)
-        dispatch({type: "SINGUP_SUCCESSFUL"})
-
-
-    //     firebase.auth().signUpWithEmailAndPassword({
-
-    //     }).then((res) => {
-    //         firestore.collection("users").doc(res.auth.uid).set({
-    //             ...credentials,
-    //             // Create additional Info
-    //             // isTrainer? 
-    //         })
-    //     }).then(() => {
-    //         dispatch({type: "SINGUP_SUCCESSFUL"})
-    //     }).
-    //     catch((err) => {
-    //         dispatch({type: "SINGUP_ERROR", err})
-    //     })
-    // }
+        firebase.auth()
+        .createUserWithEmailAndPassword(
+            credentials.email,
+            credentials.password
+        ).then((resp) => {
+            return firestore.collection('users').doc(resp.user.uid).set({
+                email: credentials.email,
+                firstName: "Angel",
+                sex: "MALE"
+            })
+        }).then(() => {
+            dispatch({type: "SINGUP_SUCCESSFULL"})
+        })
+        .catch((err) => {
+            dispatch({type: "SINGUP_ERROR", payload: err})
+        })
     }
 
 } 
